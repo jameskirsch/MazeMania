@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeMania", "MazeMania\MazeMania.vcxproj", "{B9165B4D-8580-40BF-A6CA-43774E24370C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3BA778DA-5161-4D2F-BFD8-5B6376BFC7A4}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeMania.Object", "MazeMania.Object\MazeMania.Object.vcxproj", "{4110B634-0658-4978-BE14-9186C87CDC73}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeMania.Logic", "MazeMania.Logic\MazeMania.Logic.vcxproj", "{70917965-7A45-4F6F-A854-2D11A3C375AD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeMania.Data", "MazeMania.Data\MazeMania.Data.vcxproj", "{777BDB14-0BBA-4E69-961D-71A9A135992B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9165B4D-8580-40BF-A6CA-43774E24370C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B9165B4D-8580-40BF-A6CA-43774E24370C}.Debug|Win32.Build.0 = Debug|Win32
+		{B9165B4D-8580-40BF-A6CA-43774E24370C}.Release|Win32.ActiveCfg = Release|Win32
+		{B9165B4D-8580-40BF-A6CA-43774E24370C}.Release|Win32.Build.0 = Release|Win32
+		{4110B634-0658-4978-BE14-9186C87CDC73}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4110B634-0658-4978-BE14-9186C87CDC73}.Debug|Win32.Build.0 = Debug|Win32
+		{4110B634-0658-4978-BE14-9186C87CDC73}.Release|Win32.ActiveCfg = Release|Win32
+		{4110B634-0658-4978-BE14-9186C87CDC73}.Release|Win32.Build.0 = Release|Win32
+		{70917965-7A45-4F6F-A854-2D11A3C375AD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{70917965-7A45-4F6F-A854-2D11A3C375AD}.Debug|Win32.Build.0 = Debug|Win32
+		{70917965-7A45-4F6F-A854-2D11A3C375AD}.Release|Win32.ActiveCfg = Release|Win32
+		{70917965-7A45-4F6F-A854-2D11A3C375AD}.Release|Win32.Build.0 = Release|Win32
+		{777BDB14-0BBA-4E69-961D-71A9A135992B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{777BDB14-0BBA-4E69-961D-71A9A135992B}.Debug|Win32.Build.0 = Debug|Win32
+		{777BDB14-0BBA-4E69-961D-71A9A135992B}.Release|Win32.ActiveCfg = Release|Win32
+		{777BDB14-0BBA-4E69-961D-71A9A135992B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

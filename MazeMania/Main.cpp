@@ -5,6 +5,7 @@
 using namespace std;
 using namespace MazeManiaData;
 
+
 // MazeMania by James Kirsch
 
 void main()

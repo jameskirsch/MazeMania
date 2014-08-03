@@ -2,11 +2,17 @@
 
 #pragma once
 
+#include "Repository.h"
+
 namespace MazeManiaData {
 
-	class myClass
+
+
+	//Stores all static Data
+	class Example
 	{
 		void doNothing();
 	};
 	
+
 }

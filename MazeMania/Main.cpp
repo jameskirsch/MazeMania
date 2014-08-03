@@ -14,6 +14,7 @@ using namespace MazeManiaLogic;
 
 void main()
 {	
+	
 	int response;
 	cout << "Test" << endl;
 	cin >> response; cout << endl;

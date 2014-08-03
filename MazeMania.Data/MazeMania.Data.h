@@ -2,9 +2,6 @@
 
 #pragma once
 
-
-
-
 namespace MazeManiaData {
 
 	class myClass

@@ -2,17 +2,9 @@
 
 #pragma once
 
+//MazeMania Headers for Everything that Exists within Data
+
 #include "Repository.h"
 
-namespace MazeManiaData {
 
 
-
-	//Stores all static Data
-	class Example
-	{
-		void doNothing();
-	};
-	
-
-}

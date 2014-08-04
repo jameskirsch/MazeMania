@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace MazeManiaData{
 
 	class Repository

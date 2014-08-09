@@ -2,11 +2,11 @@
 
 #pragma once
 
+#include "SFML\Graphics.hpp"
+#include "SFML\System.hpp"
+#include "SFML\Window.hpp"
 
-namespace MazeManiaObject {
+#include "Entity.h"
 
-	class Class1
-	{
-		// TODO: Add your methods for this class here..
-	};
-}
+
+

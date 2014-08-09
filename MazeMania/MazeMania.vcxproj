@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -53,7 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SFML-2.1\include;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Logic;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Object;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Data;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Logic;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Data;C:\SFML-2.1\include;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Object;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

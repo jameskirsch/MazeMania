@@ -3,4 +3,5 @@
 #include "stdafx.h"
 
 #include "MazeMania.Object.h"
+#include "Entity.h"
 

@@ -1,29 +1,24 @@
+// James Kirsch - MazeMania Project
+
 #include <iostream>
-#include <..\MazeMania.Object\MazeMania.Object.h>
 
 //SFML Libs
 #include <SFML\Graphics.hpp>
 #include <SFML\System.hpp>
 #include <SFML\Window.hpp>
 
-//Project Libs
+//DLLs
+#include <MazeMania.Data.h>
+#include <MazeMania.Object.h>
+#include <MazeMania.Logic.h>
 
-#include "MazeMania.Data.h"
-#include "MazeMania.Object.h"
-#include "MazeMania.Logic.h"
+//using namespace MazeManiaData;
+using namespace MazeManiaObject;
+//using namespace MazeManiaLogic;
 
-using namespace std;
-using namespace MazeManiaData;
-//using namespace MazeManiaObject;
-using namespace MazeManiaLogic;
 
-// MazeMania by James Kirsch
 void main()
-{
-	///*int x = 6;
-	//Entity myEntityOne;
-	//myEntityOne.SetId(x);*/
-	
+{	
 	Entity myEnt;
 	myEnt.SetId(4);
 

@@ -19,6 +19,7 @@ using namespace MazeManiaLogic;
 //Main will run the Game Loop
 void main(){
 
+	//Testing a Commit
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML window");
 	
 

@@ -21,7 +21,6 @@ void main(){
 
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML window");
 	
-
 	while (window.isOpen()){
 		sf::Event event;
 		while (window.pollEvent(event)){

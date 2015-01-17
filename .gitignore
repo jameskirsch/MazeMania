@@ -5,6 +5,8 @@
 *.suo
 *.user
 *.sln.docstates
+*.vcxproj
+*.vcxproj.filters
 
 # Build results
 
@@ -45,8 +47,6 @@ build/
 *.pidb
 *.log
 *.scc
-*.vcxproj
-*.vcxproj.filters
 
 # Visual C++ cache files
 ipch/

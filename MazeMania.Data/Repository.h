@@ -1,13 +1,14 @@
 #pragma once
 
 
-namespace MazeManiaData{
-
-	class Repository
+namespace MazeManiaData
+{
+	class __declspec(dllexport) Repository
 	{
-		public:
+	public:
 		Repository();
 
 		void DoNothing();
 	};
 }
+

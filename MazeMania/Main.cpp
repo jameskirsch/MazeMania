@@ -3,28 +3,34 @@
 #include <iostream>
 
 //SFML Libs
-#include <SFML\Graphics.hpp>
-#include <SFML\System.hpp>
-#include <SFML\Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
 
 //DLLs
 #include <MazeMania.Data.h>
 #include <MazeMania.Object.h>
 #include <MazeMania.Logic.h>
 
-//using namespace MazeManiaData;
+using namespace MazeManiaData;
 using namespace MazeManiaObject;
-//using namespace MazeManiaLogic;
+using namespace MazeManiaLogic;
 
+//Main will run the Game Loop
+void main(){
 
-void main()
-{	
-	Entity myEnt;
-	myEnt.SetId(4);
+	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML window");
+	
 
-	int response;
-	std::cout << "Test" << std::endl;
-	std::cout << "Entity Id" << myEnt.GetId() << std::endl;
-	std::cin >> response; std::cout << std::endl;
+	while (window.isOpen()){
+		sf::Event event;
+		while (window.pollEvent(event)){
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+
+		window.clear();
+		window.display();
+	}
 }
 

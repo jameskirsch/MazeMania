@@ -6,6 +6,7 @@
 #include "SFML\Window.hpp"
 
 #include "Entity.h"
+#include "Game.h"
 
 
 

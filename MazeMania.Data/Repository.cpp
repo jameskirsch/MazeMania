@@ -3,7 +3,8 @@
 //Store Data - 
 //Store Tiles
 //Store Maps
-namespace MazeManiaData
-{
+namespace MazeManiaData {
+
+	
 	
 }

@@ -9,8 +9,6 @@ namespace MazeManiaData
 		Repository();
 
 		void DoNothing();
-
-		//Store Collection of Grids
 	};
 }
 

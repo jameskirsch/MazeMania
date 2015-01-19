@@ -15,17 +15,17 @@
 using namespace MazeManiaData;
 using namespace MazeManiaObject;
 using namespace MazeManiaLogic;
-using namespace sf;
 
 //Main will run the Game Loop
-void main() {
+void main(){
 
-	RenderWindow window(VideoMode(200, 200), "SFML window");
+	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML window");
 	
+
 	while (window.isOpen()){
-		Event event;
+		sf::Event event;
 		while (window.pollEvent(event)){
-			if (event.type == Event::Closed)
+			if (event.type == sf::Event::Closed)
 				window.close();
 		}
 

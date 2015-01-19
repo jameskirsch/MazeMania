@@ -1,29 +1,22 @@
-#include <iostream>
-using namespace std;
 
-//#ifndef EXPORTING_OBJ
-#define EXPORT_TO_DLL __declspec(dllexport)
-//#else
-//#define EXPORT_TO_DLL __declspec(dllimport) extern
-//#endif
 
-namespace MazeManiaObject {
+#pragma once
 
-	class EXPORT_TO_DLL Entity {
+namespace MazeManiaObject
+{
+	class __declspec(dllexport) Entity{
 
 	public:
-		void SetId(int id);	
-		void SetName();
 
-		int GetId();
-		string test(string name);
+		void SetId(int id);
 		
+		int GetId();
+
 	protected:
+
 		int m_Id;
 	};
 }
-
-
 
 
 

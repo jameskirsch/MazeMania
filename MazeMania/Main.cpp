@@ -1,5 +1,4 @@
 // James Kirsch - MazeMania Project
-
 #include <iostream>
 
 //SFML Libs
@@ -16,21 +15,21 @@ using namespace MazeManiaData;
 using namespace MazeManiaObject;
 using namespace MazeManiaLogic;
 
+const int GAME_ID = 1;
+int SCREEN_WIDTH = 200;
+int SCREEN_HEIGHT = 200;
+const std::string GAME_NAME = "MazeMania";
+
 //Main will run the Game Loop
 void main(){
 
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML window");
-	
+	Game game( GAME_NAME, GAME_ID, 200, 200 ); 
+	std::cout << "GameId: " << game.GetId() << " " << "Game Name " << game.GetName() << std::endl;
 
-	while (window.isOpen()){
-		sf::Event event;
-		while (window.pollEvent(event)){
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+	Map map(1, 10.5, 50.4);
+	sf::Vector2f size = map.getSize();
+	std::cout << "Size of Map X: " << size.x << "Size of Map Y: " << size.y << std::endl;
 
-		window.clear();
-		window.display();
-	}
+	game.RunGame(true);	
 }
 

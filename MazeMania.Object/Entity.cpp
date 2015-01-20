@@ -2,19 +2,11 @@
 
 #include "Entity.h"
 
-//Use to export definitions into Lib
-//__declspec(dllexport)
+namespace MazeManiaObject {
 
-namespace MazeManiaObject
-{
-	void Entity::SetId(int id)
-	{
+	Entity::Entity(int id, std::string name) {
 		this->m_Id = id;
-	}
-
-	int Entity::GetId()
-	{
-		return this->m_Id;
+		this->m_Name = name;
 	}
 }
 

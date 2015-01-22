@@ -23,16 +23,10 @@ const std::string GAME_NAME = "MazeMania";
 //Main will run the Game Loop
 void main(){
 
-	//Game Object will take:
-	// Name
-	// Id
-	// Screen Width
-	// Screen Height
-
 	Game game( GAME_NAME, GAME_ID, 200, 200, 32 ); 
 	std::cout << "GameId: " << game.GetId() << " " << "Game Name " << game.GetName() << std::endl;
 
-	Map map(1, 10.5, 50.4);
+	Map map(1, 10, 50);
 	sf::Vector2f size = map.getSize();
 	std::cout << "Size of Map X: " << size.x << "Size of Map Y: " << size.y << std::endl;
 

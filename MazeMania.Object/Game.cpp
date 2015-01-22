@@ -20,7 +20,7 @@ namespace MazeManiaObject {
 		while (isRunning) {
 			
 			//Run Game Events
-			if (!this->Events()){ isRunning = false; }
+			if (!this->Events()) isRunning = false;
 
 			//Run Game Logic
 			this->Logic();

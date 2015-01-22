@@ -9,19 +9,22 @@ typedef unsigned int UINT32;
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
 
+#define EXPORT __declspec(dllexport)
+
+
 namespace MazeManiaObject {
 	
-	// Handles everything a typical Game World would handle.
-	// Has events, game logic, 
-	class __declspec(dllexport) Game {
+	// Handles everything a typical Game World would handle. ex: events, game logic, 
+	class Game {
 	
 	public:
-		Game(std::string name, UINT32 id, UINT32 videoModeWidth, UINT32 videoModeHeight, UINT32 bitsPerPixel);
+		EXPORT Game(std::string name, UINT32 id, UINT32 videoModeWidth, UINT32 videoModeHeight, UINT32 bitsPerPixel);
 
-		inline int GetId() const { return this->m_Id; }
-		inline std::string GetName() const { return this->m_Name; }
+		EXPORT inline int GetId() const { return this->m_Id; }
+		EXPORT inline std::string GetName() const { return this->m_Name; }
 
-		bool RunGame(bool isRunning);
+		EXPORT bool RunGame(bool isRunning);
+		
 		bool Events();
 		void Logic();
 		void Render();

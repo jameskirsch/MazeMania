@@ -52,12 +52,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SFML-2.2\include;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Object\Debug;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\Debug;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Object;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Data;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Logic;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(TargetDirectory)\SFML-2.2\include;$(SolutionDir)\MazeMania.Object\Debug;$(SolutionDir)\MazeMania\Debug;$(SolutionDir)\MazeMania.Object;$(SolutionDir)\MazeMania.Data;$(SolutionDir)\MazeMania.Logic;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\SFML-2.2\lib;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Data;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Logic;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\Debug;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Object;C:\Users\Jim\Documents\Visual Studio 2013\Projects\MazeMania\MazeMania.Object\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDirectory)\SFML-2.2\lib;$(SolutionDir)\MazeMania.Data;$(SolutionDir)\MazeMania.Logic;$(SolutionDir)\Debug;$(SolutionDir);$(SolutionDir)\MazeMania.Object;$(SolutionDir)\MazeMania.Object\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;MazeMania.Object.lib;winmm.lib;ws2_32.lib;sndfile.lib;openal32.lib;opengl32.lib;gdi32.lib;glew.lib;freetype.lib;jpeg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

@@ -8,6 +8,7 @@
 #include "Entity.h"
 #include "Game.h"
 #include "Map.h"
+#include "Gui.h"
 
 
 

@@ -21,9 +21,9 @@ int SCREEN_HEIGHT = 200;
 const std::string GAME_NAME = "MazeMania";
 
 //Main will run the Game Loop
-void main(){
+void main() {
 
-	Game game( GAME_NAME, GAME_ID, 200, 200, 32 ); 
+	Game game( GAME_NAME, GAME_ID, 800, 600, 32 ); 
 	std::cout << "GameId: " << game.GetId() << " " << "Game Name " << game.GetName() << std::endl;
 
 	Map map(1, 10, 50);

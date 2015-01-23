@@ -3,14 +3,14 @@
 
 typedef unsigned int UINT32;
 
-#include <string>
+#include <iostream>
 #include <memory>
 #include "SFML\System.hpp"
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
+#include "MazeMania.Object.h"
 
 #define EXPORT __declspec(dllexport)
-
 
 namespace MazeManiaObject {
 	

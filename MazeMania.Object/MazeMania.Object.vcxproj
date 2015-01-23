@@ -84,6 +84,7 @@
     <ClInclude Include="Gui.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MazeMania.Object.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +94,7 @@
     <ClCompile Include="Gui.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MazeMania.Object.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>

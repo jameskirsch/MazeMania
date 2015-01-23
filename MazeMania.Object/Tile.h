@@ -12,9 +12,8 @@ namespace MazeManiaObject {
 	public:
 		Tile();
 
-
 	private:
-		int m_TileId;
+		int m_TileTypeId;
 
 	};
 }

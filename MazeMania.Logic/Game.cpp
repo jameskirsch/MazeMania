@@ -7,9 +7,9 @@ namespace MazeManiaLogic {
 		UINT32 videoModeHeight, uint32_t bitsPerPixel) :
 
 		m_Window(new sf::RenderWindow(sf::VideoMode(videoModeWidth, videoModeHeight, bitsPerPixel), name)),
-		m_Event(new sf::Event)
-		/*m_Player(new Player())*/
-		//m_Load(new Load(*m_Player))
+		m_Event(new sf::Event),
+		m_Player(new Player()),
+		m_Load(new Load())
 	{
 		//Provides Information about the Game
 		this->m_Id = id;

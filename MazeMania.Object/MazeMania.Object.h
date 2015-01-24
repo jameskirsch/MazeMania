@@ -7,7 +7,6 @@
 #include "SFML\Window.hpp"
 
 #include "Entity.h"
-//#include "Game.h"
 #include "Map.h"
 #include "Gui.h"
 #include "Player.h"

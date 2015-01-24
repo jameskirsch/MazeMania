@@ -84,7 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="MazeMania.Data.cpp" />
     <ClCompile Include="Repository.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,16 +1,16 @@
 #include "Game.h"
 
-namespace MazeManiaObject {
+namespace MazeManiaLogic {
 
 	//Game ctor, and Components
-	Game::Game(std::string name, uint32_t id, uint32_t videoModeWidth, 
+	Game::Game(std::string name, uint32_t id, uint32_t videoModeWidth,
 		UINT32 videoModeHeight, uint32_t bitsPerPixel) :
 
 		m_Window(new sf::RenderWindow(sf::VideoMode(videoModeWidth, videoModeHeight, bitsPerPixel), name)),
-		m_Event(new sf::Event),
-		m_Player(new Player())
+		m_Event(new sf::Event)
+		/*m_Player(new Player())*/
 		//m_Load(new Load(*m_Player))
-	{		
+	{
 		//Provides Information about the Game
 		this->m_Id = id;
 		this->m_Name = name;
@@ -21,7 +21,7 @@ namespace MazeManiaObject {
 
 		//The Main Game Loop
 		while (isRunning) {
-			
+
 			//Run Game Events
 			if (!this->Events()) isRunning = false;
 

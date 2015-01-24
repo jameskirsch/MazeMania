@@ -18,10 +18,10 @@ using namespace MazeManiaData;
 using namespace MazeManiaObject;
 using namespace MazeManiaLogic;
 
-const int GAME_ID = 1;
+int GAME_ID = 1;
 int SCREEN_WIDTH = 200;
 int SCREEN_HEIGHT = 200;
-const std::string GAME_NAME = "MazeMania";
+std::string GAME_NAME = "MazeMania";
 
 //Main will run the Game Loop
 void main() {
@@ -33,6 +33,6 @@ void main() {
 	sf::Vector2f size = map.getSize();
 	std::cout << "Size of Map X: " << size.x << "Size of Map Y: " << size.y << std::endl;
 
-	game.RunGame(true);	
+	game.RunGame(true);
 }
 

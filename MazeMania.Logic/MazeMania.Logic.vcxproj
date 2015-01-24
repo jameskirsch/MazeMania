@@ -78,12 +78,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Load.h" />
     <ClInclude Include="MazeMania.Logic.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Load.cpp" />
   </ItemGroup>
   <ItemGroup>

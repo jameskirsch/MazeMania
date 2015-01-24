@@ -5,12 +5,15 @@ typedef unsigned int UINT32;
 
 #include <iostream>
 #include <memory>
+#include "Player.h"
+#include "Map.h"
+#include "MazeMania.Object.h"
 #include "SFML\System.hpp"
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
-#include "MazeMania.Object.h"
 
 #define EXPORT __declspec(dllexport)
+
 
 namespace MazeManiaObject {
 	
@@ -36,6 +39,8 @@ namespace MazeManiaObject {
 	private:
 		std::unique_ptr<sf::RenderWindow> m_Window;
 		std::unique_ptr<sf::Event> m_Event;
+		std::unique_ptr<Player> m_Player;
+		//Load m_Load;
 	};
 }
 #endif

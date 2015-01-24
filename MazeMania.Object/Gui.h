@@ -3,11 +3,10 @@
 
 namespace MazeManiaObject {
 
-	class Gui
-	{
+	class Gui {
+	
 	public:
 		Gui();
-		~Gui();
 	};
 }
 #endif

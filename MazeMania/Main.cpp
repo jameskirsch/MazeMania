@@ -1,4 +1,7 @@
 // James Kirsch - MazeMania Project
+// This represents a somewhat generic 2D game engine, used to create a Maze Game
+// Using the SFLM library
+
 #include <iostream>
 
 //SFML Libs
@@ -23,7 +26,7 @@ const std::string GAME_NAME = "MazeMania";
 //Main will run the Game Loop
 void main() {
 
-	Game game( GAME_NAME, GAME_ID, 800, 600, 32 ); 
+	Game game(GAME_NAME, GAME_ID, 800, 600, 32);
 	std::cout << "GameId: " << game.GetId() << " " << "Game Name " << game.GetName() << std::endl;
 
 	Map map(1, 10, 50);

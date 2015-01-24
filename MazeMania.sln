@@ -13,8 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3BA778
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeMania.Object", "MazeMania.Object\MazeMania.Object.vcxproj", "{4110B634-0658-4978-BE14-9186C87CDC73}"
+	ProjectSection(ProjectDependencies) = postProject
+		{777BDB14-0BBA-4E69-961D-71A9A135992B} = {777BDB14-0BBA-4E69-961D-71A9A135992B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeMania.Logic", "MazeMania.Logic\MazeMania.Logic.vcxproj", "{70917965-7A45-4F6F-A854-2D11A3C375AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{777BDB14-0BBA-4E69-961D-71A9A135992B} = {777BDB14-0BBA-4E69-961D-71A9A135992B}
+		{4110B634-0658-4978-BE14-9186C87CDC73} = {4110B634-0658-4978-BE14-9186C87CDC73}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MazeMania.Data", "MazeMania.Data\MazeMania.Data.vcxproj", "{777BDB14-0BBA-4E69-961D-71A9A135992B}"
 EndProject

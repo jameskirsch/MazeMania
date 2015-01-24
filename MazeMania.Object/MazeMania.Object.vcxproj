@@ -93,7 +93,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gui.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MazeMania.Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>

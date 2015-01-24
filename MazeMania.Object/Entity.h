@@ -10,7 +10,10 @@ namespace MazeManiaObject {
 	class Entity {
 
 	public:
+		EXPORT Entity::Entity();
+		EXPORT Entity::Entity(int id);
 		EXPORT Entity::Entity(int id, std::string name);
+		
 
 		inline void SetId(int id) { this->m_Id = id; }
 		inline void SetName(std::string name) { this->m_Name = name; }

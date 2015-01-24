@@ -3,10 +3,5 @@
 
 namespace MazeManiaObject {
 
-	Gui::Gui()
-	{
-	}
-	Gui::~Gui()
-	{
-	}
+	Gui::Gui(){}
 }

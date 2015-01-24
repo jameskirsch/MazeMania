@@ -3,8 +3,8 @@
 namespace MazeManiaObject {
 
 	Tile::Tile() :
-		Entity(1, "t"),
-		sf::RectangleShape()	
+		sf::RectangleShape(),
+		Entity()
 	{
 	}
 }

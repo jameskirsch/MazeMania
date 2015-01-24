@@ -3,10 +3,13 @@
 namespace MazeManiaObject {
 
 	//Game ctor, and Components
-	Game::Game(std::string name, UINT32 id, UINT32 videoModeWidth, 
-		UINT32 videoModeHeight, UINT32 bitsPerPixel) :
+	Game::Game(std::string name, uint32_t id, uint32_t videoModeWidth, 
+		UINT32 videoModeHeight, uint32_t bitsPerPixel) :
+
 		m_Window(new sf::RenderWindow(sf::VideoMode(videoModeWidth, videoModeHeight, bitsPerPixel), name)),
-		m_Event(new sf::Event)
+		m_Event(new sf::Event),
+		m_Player(new Player())
+		//m_Load(new Load(*m_Player))
 	{		
 		//Provides Information about the Game
 		this->m_Id = id;
@@ -54,9 +57,3 @@ namespace MazeManiaObject {
 		m_Window->display();
 	}
 }
-
-//HAS maps
-//HAS entities
-//HAS events
-//HAS graphics
-//HAS players

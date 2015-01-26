@@ -11,8 +11,9 @@ namespace MazeManiaObject {
 
 	public:
 		EXPORT Map(int id, float size_X, float size_Y);
+		EXPORT Map() {}
 
-	protected:
+	private:
 		int m_Id;
 	};
 }

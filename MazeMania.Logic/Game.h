@@ -31,7 +31,7 @@ namespace MazeManiaLogic {
 		//Called 
 		EXPORT void RunGame();
 
-		//Initialize any Game Features, such as Settings, Maps, etc.
+		//Initialize any Game Features, such as Player Settings, Maps, etc.
 		bool Init();
 
 		//Handle All Game Input and Events
@@ -50,8 +50,9 @@ namespace MazeManiaLogic {
 	private:
 		std::unique_ptr<sf::RenderWindow> m_Window;
 		std::unique_ptr<sf::Event> m_Event;
-		std::unique_ptr<Player> m_Player;
 		std::unique_ptr<Repository> m_Repository;
+		std::vector<Player> m_Player;
+		std::vector<Map> m_Map;		
 	};
 }
 #endif

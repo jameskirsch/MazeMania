@@ -8,17 +8,11 @@ namespace MazeManiaLogic {
 
 		m_Window(new sf::RenderWindow(sf::VideoMode(vWidth, vHeight, bpp), name)),
 		m_Event(new sf::Event),
-		m_Player(new Player()),
 		m_Repository(new Repository())
 	{
 		//Provides Information about the Game
 		this->m_Id = id;
 		this->m_Name = name;
-	}
-
-	//Initialize all Game Features
-	bool Game::Init() {
-		return true;
 	}
 
 	//Handles Running the Game With the Primary Game Loop

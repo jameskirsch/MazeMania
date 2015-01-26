@@ -3,8 +3,8 @@
 
 #define EXPORT __declspec(dllexport)
 
-namespace MazeManiaData
-{
+namespace MazeManiaData {
+
 	class Repository {
 
 	public:

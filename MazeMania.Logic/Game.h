@@ -5,6 +5,9 @@ typedef unsigned int UINT32;
 
 #include <MazeMania.Object.h>
 #include <MazeMania.Data.h>
+#include "EventEngine.h"
+#include "LogicEngine.h"
+#include "RenderEngine.h"
 #include <iostream>
 #include <memory>
 #include "SFML\System.hpp"
@@ -33,23 +36,16 @@ namespace MazeManiaLogic {
 
 		//Initialize any Game Features, such as Player Settings, Maps, etc.
 		bool Init();
-
-		//Handle All Game Input and Events
-		bool Events();
-
-		//Handle Game Logic, Such as AI, Object Interactions, etc.
-		void Logic();
-
-		//Handle Drawing Graphics to the Screen & Display
-		void Render();
-
+	
 	protected:
 		int m_Id;
 		std::string m_Name;
 
 	private:
+		std::unique_ptr<EventEngine> m_EventEngine;
+		std::unique_ptr<LogicEngine> m_LogicEngine;
+		std::unique_ptr<RenderEngine> m_RenderEngine;
 		std::unique_ptr<sf::RenderWindow> m_Window;
-		std::unique_ptr<sf::Event> m_Event;
 		std::unique_ptr<Repository> m_Repository;
 		std::vector<Player> m_Player;
 		std::vector<Map> m_Map;		

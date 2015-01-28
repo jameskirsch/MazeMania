@@ -3,8 +3,9 @@
 #pragma once
 
 #include "Game.h"
-#include "Event.h"
-#include "Logic.h"
+#include "EventEngine.h"
+#include "LogicEngine.h"
+#include "RenderEngine.h"
 #include "..\MazeMania.Data\MazeMania.Data.h"
 #include "..\MazeMania.Object\MazeMania.Object.h"
 

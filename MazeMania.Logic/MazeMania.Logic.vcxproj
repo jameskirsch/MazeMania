@@ -78,21 +78,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Clock.h" />
     <ClInclude Include="EventEngine.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Init.h" />
-    <ClInclude Include="LogicEngine.h" />
+    <ClInclude Include="Logic.h" />
     <ClInclude Include="MazeMania.Logic.h" />
-    <ClInclude Include="RenderEngine.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Clock.cpp" />
     <ClCompile Include="EventEngine.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Init.cpp" />
-    <ClCompile Include="LogicEngine.cpp" />
-    <ClCompile Include="RenderEngine.cpp" />
+    <ClCompile Include="Logic.cpp" />
+    <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

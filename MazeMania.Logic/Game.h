@@ -5,9 +5,10 @@ typedef unsigned int UINT32;
 
 #include <MazeMania.Object.h>
 #include <MazeMania.Data.h>
+#include "Clock.h"
 #include "EventEngine.h"
-#include "LogicEngine.h"
-#include "RenderEngine.h"
+#include "Logic.h"
+#include "Renderer.h"
 #include <iostream>
 #include <memory>
 #include "SFML\System.hpp"
@@ -35,20 +36,23 @@ namespace MazeManiaLogic {
 		EXPORT void RunGame();
 
 		//Initialize any Game Features, such as Player Settings, Maps, etc.
-		bool Init();
+		bool Init(std::vector<Map> &pMap);
+
+		EXPORT sf::RenderWindow GetRenderWindow() { return *m_Window; }
 	
 	protected:
 		int m_Id;
 		std::string m_Name;
 
 	private:
-		std::unique_ptr<EventEngine> m_EventEngine;
-		std::unique_ptr<LogicEngine> m_LogicEngine;
-		std::unique_ptr<RenderEngine> m_RenderEngine;
+		std::unique_ptr<Clock> m_Clock;
 		std::unique_ptr<sf::RenderWindow> m_Window;
 		std::unique_ptr<Repository> m_Repository;
-		std::vector<Player> m_Player;
-		std::vector<Map> m_Map;		
+		std::unique_ptr<EventEngine> m_EventEngine;
+		std::unique_ptr<Logic> m_Logic;
+		std::unique_ptr<Renderer> m_Renderer;
+		std::unique_ptr<std::vector<Player>> m_Player;
+		std::unique_ptr<std::vector<Map>> m_Map;		
 	};
 }
 #endif

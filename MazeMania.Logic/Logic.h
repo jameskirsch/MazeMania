@@ -1,5 +1,5 @@
-#ifndef RENDER_ENGINE_H_INCLUDED
-#define RENDER_ENGINE_H_INCLUDED
+#ifndef LOGIC_H_INCLUDED
+#define LOGIC_H_INCLUDED
 
 #include <SFML\System.hpp>
 #include <SFML\Graphics.hpp>
@@ -8,12 +8,13 @@
 
 namespace MazeManiaLogic {
 
-	class RenderEngine {
+	class Logic {
 
 	public:
-		RenderEngine();
+		Logic();
 
-		bool runRendering(sf::RenderWindow &pWindow);
+		bool Run(sf::RenderWindow &pWindow);
+
 	};
 }
 #endif

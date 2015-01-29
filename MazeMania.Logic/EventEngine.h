@@ -13,7 +13,7 @@ namespace MazeManiaLogic {
 	public:
 		EventEngine();
 
-		bool runEvents(sf::RenderWindow &pWindow);
+		bool RunEvents(sf::RenderWindow &pWindow);
 
 	private:
 

@@ -7,7 +7,7 @@ namespace MazeManiaLogic {
 	{
 	}
 
-	bool EventEngine::runEvents(sf::RenderWindow &pWindow) {
+	bool EventEngine::RunEvents(sf::RenderWindow &pWindow) {
 
 		//Events
 		while (pWindow.pollEvent(*m_Event)) {

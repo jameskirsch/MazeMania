@@ -3,7 +3,7 @@
 namespace MazeManiaLogic {
 
 	//Initialize all Game Features
-	bool Game::Init() {
+	bool Game::Init(std::vector<Map> &pMap) {
 
 		Map map;
 		Map map2;
@@ -12,13 +12,13 @@ namespace MazeManiaLogic {
 
 		//Assign Maps into m_Map
 		//... need to iterate Map Data coming from Repo
-		m_Map.push_back(map);
-		m_Map.push_back(map2);
+		pMap.push_back(map);
+		pMap.push_back(map2);
 
-		std::cout << "Size Of Map Container: " << m_Map.size() << std::endl;
+		std::cout << "Size Of Map Container: " << pMap.size() << std::endl;
 
 		//Look at each Map Obj in the Vector and Construct it
-		for each (Map obj in m_Map) {
+		for each (Map obj in pMap) {
 
 			obj.setSize(sf::Vector2f(100.f, 100.f));
 			xy = obj.getSize();

@@ -1,5 +1,5 @@
-#ifndef EVENT_ENGINE_H_INCLUDED
-#define EVENT_ENGINE_H_INCLUDED
+#ifndef EVENT_HANDLER_H_INCLUDED
+#define EVENT_HANDLER_H_INCLUDED
 
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
@@ -8,15 +8,17 @@
 
 namespace MazeManiaLogic {
 
-	class EventEngine {
+	class Game; //Used for Forward Declartion
+
+	class EventHandler {
 
 	public:
-		EventEngine();
+		EventHandler(Game &pGame);
 
-		bool RunEvents(sf::RenderWindow &pWindow);
+		bool RunEvents();
 
 	private:
-
+		Game *m_Game;
 		std::unique_ptr<sf::Event> m_Event;
 	};
 }

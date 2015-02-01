@@ -6,7 +6,7 @@ typedef unsigned int UINT32;
 #include <MazeMania.Object.h>
 #include <MazeMania.Data.h>
 #include "Clock.h"
-#include "EventEngine.h"
+#include "EventHandler.h"
 #include "Logic.h"
 #include "Renderer.h"
 #include <iostream>
@@ -29,16 +29,20 @@ namespace MazeManiaLogic {
 		EXPORT Game(std::string name, UINT32 id, UINT32 vWidth, 
 			UINT32 vHeight, UINT32 bpp);
 
+		//EXPORT ~Game();
+
 		EXPORT inline int GetId() const { return this->m_Id; }
 		EXPORT inline std::string GetName() const { return this->m_Name; }
 
-		//Called 
+		//Run Games
 		EXPORT void RunGame();
 
 		//Initialize any Game Features, such as Player Settings, Maps, etc.
 		bool Init(std::vector<Map> &pMap);
 
-		EXPORT sf::RenderWindow GetRenderWindow() { return *m_Window; }
+		EXPORT inline sf::RenderWindow& GetRenderWindow() { return *m_Window; }
+		EXPORT inline Clock& GetClock() { return *m_Clock; }
+		//EXPORT inline Repository& GetRepository() { return *m_Repository; }
 	
 	protected:
 		int m_Id;
@@ -48,7 +52,7 @@ namespace MazeManiaLogic {
 		std::unique_ptr<Clock> m_Clock;
 		std::unique_ptr<sf::RenderWindow> m_Window;
 		std::unique_ptr<Repository> m_Repository;
-		std::unique_ptr<EventEngine> m_EventEngine;
+		std::unique_ptr<EventHandler> m_EventHandler;
 		std::unique_ptr<Logic> m_Logic;
 		std::unique_ptr<Renderer> m_Renderer;
 		std::unique_ptr<std::vector<Player>> m_Player;

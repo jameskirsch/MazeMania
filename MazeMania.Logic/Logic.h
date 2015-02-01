@@ -8,12 +8,17 @@
 
 namespace MazeManiaLogic {
 
+	class Game;
+
 	class Logic {
 
 	public:
-		Logic();
+		Logic(Game &pGame);
 
-		bool Run(sf::RenderWindow &pWindow);
+		bool Run();
+
+	private:
+		Game *m_Game;
 
 	};
 }

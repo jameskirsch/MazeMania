@@ -1,15 +1,17 @@
 #include "Logic.h"
+#include "Game.h"
 
 namespace MazeManiaLogic {
 
-	Logic::Logic()
+	Logic::Logic(Game &pGame) :
+		m_Game(&pGame)
 	{
 	}
 
-	bool Logic::Run(sf::RenderWindow &pWindow) {
+	bool Logic::Run() {
 		
-			pWindow.clear();
-			
+		m_Game->GetRenderWindow().clear();
+				
 		return true;
 	}
 }

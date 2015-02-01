@@ -8,20 +8,19 @@
 
 #define EXPORT __declspec(dllexport)
 
-//Forward Declaration
-class Game;
-
 namespace MazeManiaLogic {
+
+	//This is needed to Resolve Circular Dependencies between Game, and Renderer ( Forward Declaration )
+	class Game;
 
 	class Renderer {
 
 	public:
-		EXPORT Renderer(Game *ptr);
-
+		EXPORT Renderer(Game &pGame);
 		EXPORT bool Run();
 
+	private:
 		Game *m_Game;
-
 	};
 }
 #endif

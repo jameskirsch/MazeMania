@@ -1,4 +1,7 @@
 #include "Game.h"
+#include "EventHandler.h" //Forward Declartion
+#include "Logic.h" //Forward Declartion
+#include "Renderer.h" //Forward Declartion
 
 namespace MazeManiaLogic {
 
@@ -9,9 +12,9 @@ namespace MazeManiaLogic {
 		m_Clock(new Clock()),
 		m_Window(new sf::RenderWindow(sf::VideoMode(vWidth, vHeight, bpp), name)),
 		m_Repository(new Repository()),
-		m_EventEngine(new EventEngine()),
-		m_Logic(new Logic()),
-		m_Renderer(new Renderer(this)),
+		m_EventHandler(new EventHandler(*this)),
+		m_Logic(new Logic(*this)),
+		m_Renderer(new Renderer(*this)),
 		m_Map(new std::vector<Map>())
 	{
 		//Provides Information about the Game
@@ -30,13 +33,15 @@ namespace MazeManiaLogic {
 		while (isRunning) {
 
 			//Run Game Events
-			if (!this->m_EventEngine->RunEvents(*m_Window)) isRunning = false;
+			if (!this->m_EventHandler->RunEvents()) isRunning = false;
 
 			//Run Game Logic
-			this->m_Logic->Run(*m_Window);
+			this->m_Logic->Run();
 
 			//Run Game Rendering
 			this->m_Renderer->Run();
 		}
 	}
 }
+
+

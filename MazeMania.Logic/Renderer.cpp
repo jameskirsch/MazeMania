@@ -1,19 +1,19 @@
-//#include "Renderer.h"
-#include "Game.h"
 #include "Renderer.h"
+#include "Game.h"
 
 namespace MazeManiaLogic {
 
-	Renderer::Renderer(Game *ptr)	
+	Renderer::Renderer(Game &pGame) :
+		m_Game(&pGame)
 	{
-		this->m_Game = ptr;
+
 	}
 	
-	//DI ?
 	bool Renderer::Run() {
 
-		//this->m_Game->GetRenderWindow().display();
+		m_Game->GetRenderWindow().display();
 
 		return true;
 	}
+
 }

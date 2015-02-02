@@ -9,9 +9,10 @@ namespace MazeManiaLogic {
 	}
 
 	bool Logic::Run() {
+
+
 		
-		m_Game->GetRenderWindow().clear();
-				
+			
 		return true;
 	}
 }

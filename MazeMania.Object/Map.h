@@ -10,11 +10,9 @@ namespace MazeManiaObject {
 	class Map : public sf::RectangleShape {
 
 	public:
-		EXPORT Map(int id, float size_X, float size_Y);
-		EXPORT Map() {}
+		EXPORT Map();
 
 	private:
-		int m_Id;
 	};
 }
 #endif

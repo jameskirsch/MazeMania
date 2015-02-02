@@ -11,6 +11,7 @@
 #include "Gui.h"
 #include "Player.h"
 #include "Tile.h"
+#include "Clock.h"
 
 
 

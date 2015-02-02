@@ -27,10 +27,10 @@ namespace MazeManiaLogic {
 
 		bool isRunning;
 		//Run Init, if anything should fail, catch the exception here.
-		this->Init(*m_Map) == true ? isRunning = true : isRunning = false;
+		this->Init() == true ? isRunning = true : isRunning = false;
 
 		//The Main Game Loop
-		while (isRunning) {
+		while (m_Window->isOpen() && isRunning) {
 
 			//Run Game Events
 			if (!this->m_EventHandler->RunEvents()) isRunning = false;

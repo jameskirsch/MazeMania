@@ -1,5 +1,4 @@
 // James Kirsch - MazeMania Project
-// This represents a somewhat generic 2D game engine, used to create a Maze Game
 // Using the SFLM library
 
 #include <iostream>

@@ -3,9 +3,10 @@
 
 typedef unsigned int UINT32;
 
+#include <algorithm>
+#include <list>
 #include <MazeMania.Object.h>
 #include <MazeMania.Data.h>
-#include "Clock.h"
 #include "EventHandler.h"
 #include "Logic.h"
 #include "Renderer.h"
@@ -38,11 +39,14 @@ namespace MazeManiaLogic {
 		EXPORT void RunGame();
 
 		//Initialize any Game Features, such as Player Settings, Maps, etc.
-		bool Init(std::vector<Map> &pMap);
+		bool Init();
 
 		EXPORT inline sf::RenderWindow& GetRenderWindow() { return *m_Window; }
 		EXPORT inline Clock& GetClock() { return *m_Clock; }
-		//EXPORT inline Repository& GetRepository() { return *m_Repository; }
+		EXPORT inline Repository& GetRepository() { return *m_Repository; }
+		
+		//Returns a Collection of Game Maps
+		EXPORT inline std::vector<Map>& GetMapCollection() { return *m_Map; }
 	
 	protected:
 		int m_Id;

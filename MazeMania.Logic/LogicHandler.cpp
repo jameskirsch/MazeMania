@@ -1,14 +1,14 @@
-#include "Logic.h"
+#include "LogicHandler.h"
 #include "Game.h"
 
 namespace MazeManiaLogic {
 
-	Logic::Logic(Game &pGame) :
+	LogicHandler::LogicHandler(Game &pGame) :
 		m_Game(&pGame)
 	{
 	}
 
-	bool Logic::Run() {
+	bool LogicHandler::Run() {
 
 
 		

@@ -13,10 +13,9 @@ namespace MazeManiaLogic {
 	
 	bool Renderer::Run() {
 
-		sf::Vector2f xy;
-
-		m_Game->GetRenderWindow().clear(sf::Color::White);
+		m_Game->GetRenderWindow().clear(sf::Color::Green);
 		
+		//Draws Maps that are in the Levels TO DO: encapsulate these
 		for (auto &i : m_Game->GetLevelCollection()){
 			Map tMap = i.GetMap();
 			m_Game->GetRenderWindow().draw(tMap);

@@ -8,7 +8,7 @@ typedef unsigned int UINT32;
 #include <MazeMania.Object.h>
 #include <MazeMania.Data.h>
 #include "EventHandler.h"
-#include "Logic.h"
+#include "LogicHandler.h"
 #include "Renderer.h"
 #include <iostream>
 #include <memory>
@@ -43,7 +43,7 @@ namespace MazeManiaLogic {
 
 		EXPORT inline sf::RenderWindow& GetRenderWindow() { return *m_Window; }
 		EXPORT inline Clock& GetClock() { return *m_Clock; }
-		EXPORT inline Repository& GetRepository() { return *m_Repository; }
+		EXPORT inline Repository&  GetRepository() { return *m_Repository; }
 		
 		//Returns a Collection of Game Maps
 		EXPORT inline std::vector<Level>& GetLevelCollection() { return *m_LevelCollection; }
@@ -57,7 +57,7 @@ namespace MazeManiaLogic {
 		std::unique_ptr<sf::RenderWindow> m_Window;
 		std::unique_ptr<Repository> m_Repository;
 		std::unique_ptr<EventHandler> m_EventHandler;
-		std::unique_ptr<Logic> m_Logic;
+		std::unique_ptr<LogicHandler> m_LogicHandler;
 		std::unique_ptr<Renderer> m_Renderer;
 		std::unique_ptr<std::vector<Player>> m_Player;
 		std::unique_ptr<std::vector<Level>> m_LevelCollection;

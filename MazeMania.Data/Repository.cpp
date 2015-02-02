@@ -5,5 +5,5 @@
 //Store Maps
 namespace MazeManiaData {
 
-	Repository::Repository() {}
+	 Repository::Repository() {}
 }

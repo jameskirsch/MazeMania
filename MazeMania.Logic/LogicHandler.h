@@ -1,5 +1,5 @@
-#ifndef LOGIC_H_INCLUDED
-#define LOGIC_H_INCLUDED
+#ifndef LOGIC__HANDLER_H_INCLUDED
+#define LOGIC__HANDLER_H_INCLUDED
 
 #include <SFML\System.hpp>
 #include <SFML\Graphics.hpp>
@@ -10,10 +10,10 @@ namespace MazeManiaLogic {
 
 	class Game;
 
-	class Logic {
+	class LogicHandler {
 
 	public:
-		Logic(Game &pGame);
+		LogicHandler(Game &pGame);
 
 		bool Run();
 

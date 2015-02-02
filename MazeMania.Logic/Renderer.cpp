@@ -17,13 +17,9 @@ namespace MazeManiaLogic {
 
 		m_Game->GetRenderWindow().clear(sf::Color::White);
 		
-
-		/*std::for_each(m_Game->GetMapCollection().begin(), m_Game->GetMapCollection().end(), [](Map& m) {
-		
-		});*/
-
-		for each (Map var in m_Game->GetMapCollection()) {
-			m_Game->GetRenderWindow().draw(var);
+		for (auto &i : m_Game->GetLevelCollection()){
+			Map tMap = i.GetMap();
+			m_Game->GetRenderWindow().draw(tMap);
 		}
 
 		m_Game->GetRenderWindow().display();

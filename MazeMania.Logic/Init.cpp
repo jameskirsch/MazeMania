@@ -6,15 +6,15 @@ namespace MazeManiaLogic {
 	bool Game::Init() {
 
 		//TO DO: Make this value an input
-		int numMaps = 7;
+		int numMaps = 1;
 		
 		//Size the Map Container based on input and Set Map Properties
-		m_Map->resize(numMaps);
+		this->m_LevelCollection->resize(numMaps);
 		float x = 0.f, y = 0.f; // Map Position
-		std::for_each(GetMapCollection().begin(), GetMapCollection().end(),[&x, &y](Map& m) { 
-			m.setSize(sf::Vector2f(50.f, 50.f)),
-			m.setFillColor(sf::Color::Red),
-			m.setPosition( x, y),
+		std::for_each(GetLevelCollection().begin(), GetLevelCollection().end(),[&x, &y](Level& lvl) { 
+			lvl.GetMap().setSize(sf::Vector2f(300.f, 300.f)),
+			lvl.GetMap().setFillColor(sf::Color::Black),
+			lvl.GetMap().setPosition( x, y),
 			x += 50.f, y += 50;
 		});
 

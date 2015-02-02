@@ -46,7 +46,7 @@ namespace MazeManiaLogic {
 		EXPORT inline Repository& GetRepository() { return *m_Repository; }
 		
 		//Returns a Collection of Game Maps
-		EXPORT inline std::vector<Map>& GetMapCollection() { return *m_Map; }
+		EXPORT inline std::vector<Level>& GetLevelCollection() { return *m_LevelCollection; }
 	
 	protected:
 		int m_Id;
@@ -60,7 +60,7 @@ namespace MazeManiaLogic {
 		std::unique_ptr<Logic> m_Logic;
 		std::unique_ptr<Renderer> m_Renderer;
 		std::unique_ptr<std::vector<Player>> m_Player;
-		std::unique_ptr<std::vector<Map>> m_Map;		
+		std::unique_ptr<std::vector<Level>> m_LevelCollection;
 	};
 }
 #endif

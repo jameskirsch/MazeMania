@@ -15,7 +15,7 @@ namespace MazeManiaLogic {
 		m_EventHandler(new EventHandler(*this)),
 		m_Logic(new Logic(*this)),
 		m_Renderer(new Renderer(*this)),
-		m_Map(new std::vector<Map>())
+		m_LevelCollection(new std::vector<Level>)
 	{
 		//Provides Information about the Game
 		this->m_Id = id;

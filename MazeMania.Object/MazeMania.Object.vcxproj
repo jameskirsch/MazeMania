@@ -84,6 +84,7 @@
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Gui.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MazeMania.Object.h" />
     <ClInclude Include="Player.h" />
@@ -94,6 +95,7 @@
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Gui.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Tile.cpp" />

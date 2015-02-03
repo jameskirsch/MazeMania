@@ -8,7 +8,6 @@
 #include <memory>
 #include <vector>
 
-
 namespace MazeManiaObject {
 
 	class Level : Entity {

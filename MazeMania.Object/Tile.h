@@ -1,6 +1,8 @@
 #ifndef TILE_H_INCLUDED
 #define TILE_H_INCLUDED
 
+#define EXPORT __declspec(dllexport)
+
 #include <memory>
 #include "SFML\System.hpp"
 #include "SFML\Graphics.hpp"
@@ -11,11 +13,12 @@ namespace MazeManiaObject {
 	class Tile : Entity {
 
 	public:
-		Tile();
+		EXPORT Tile();
+		inline sf::RectangleShape& GetShape() { return *m_Shape; }
 
 	private:
 		int m_TileTypeId;
-		std::unique_ptr<sf::RectangleShape> m_RectShape;
+		sf::RectangleShape *m_Shape;
 	};
 }
 #endif

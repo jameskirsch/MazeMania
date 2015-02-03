@@ -17,8 +17,11 @@ namespace MazeManiaLogic {
 		
 		//Draws Maps that are in the Levels TO DO: encapsulate these
 		for (auto &i : m_Game->GetLevelCollection()){
-			Map tMap = i.GetMap();
-			m_Game->GetRenderWindow().draw(tMap);
+			m_Game->GetRenderWindow().draw(static_cast<sf::RectangleShape>(i.GetMap().GetShape()));
+
+			//Draw Tiles on the Map
+			for (auto&i : i.GetMap().GetTileCollection())
+				m_Game->GetRenderWindow().draw(static_cast<sf::RectangleShape>(i.GetShape()));
 		}
 
 		m_Game->GetRenderWindow().display();

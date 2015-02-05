@@ -17,11 +17,11 @@ namespace MazeManiaObject {
 	public:
 		EXPORT Map();
 		EXPORT inline sf::RectangleShape& GetShape() { return *m_Shape; }
-		EXPORT inline std::vector<Tile>& GetTileCollection() { return *m_TileCollection; }
+		EXPORT inline std::vector<Tile>& GetTiles() { return *m_Tiles; }
 
 	private:
 		std::unique_ptr<sf::RectangleShape> m_Shape;
-		std::vector<Tile> *m_TileCollection;
+		std::vector<Tile> *m_Tiles;
 
 	};
 }

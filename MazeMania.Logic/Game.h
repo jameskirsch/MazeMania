@@ -3,10 +3,12 @@
 
 typedef unsigned int UINT32;
 
+#include "StateMachine.h"
 #include <algorithm>
 #include <list>
 #include <MazeMania.Object.h>
 #include <MazeMania.Data.h>
+#include "Session.h"
 #include "EventHandler.h"
 #include "LogicHandler.h"
 #include "Renderer.h"
@@ -46,7 +48,7 @@ namespace MazeManiaLogic {
 		EXPORT inline Repository&  GetRepository() { return *m_Repository; }
 		
 		//Returns a Collection of Game Maps
-		EXPORT inline std::vector<Level>& GetLevelCollection() { return *m_LevelCollection; }
+		EXPORT inline Session& GetSession() { return *m_Session; }
 	
 	protected:
 		int m_Id;
@@ -59,8 +61,7 @@ namespace MazeManiaLogic {
 		std::unique_ptr<EventHandler> m_EventHandler;
 		std::unique_ptr<LogicHandler> m_LogicHandler;
 		std::unique_ptr<Renderer> m_Renderer;
-		std::unique_ptr<std::vector<Player>> m_Player;
-		std::unique_ptr<std::vector<Level>> m_LevelCollection;
+		std::unique_ptr<Session> m_Session;
 	};
 }
 #endif

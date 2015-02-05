@@ -4,7 +4,7 @@ namespace MazeManiaObject {
 
 	Map::Map() :
 		m_Shape(new sf::RectangleShape()),
-		m_TileCollection(new std::vector<Tile>())
+		m_Tiles(new std::vector<Tile>())
 	{
 	}
 }

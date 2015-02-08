@@ -1,3 +1,10 @@
+// The Session Class:
+// - Is-a Entity
+// - Has-a Level
+// - Has-a Collection of Players
+// - Is used by the Game Class. Game Class Has-a Session.
+// - Purpose: Gather Player Information before Level Generation.
+
 #ifndef SESSION_H_INCLUDED
 #define SESSION_H_INCLUDED
 

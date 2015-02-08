@@ -1,3 +1,8 @@
+// The Game Class:
+// - This Contains everything a Game World will have. 
+// - Has-a : Session, Window, Repository, EventHandler, LogicHandler, Renderer, Clock
+// - Contains a Game Loop, in which Events, Logic, and Rendering are broken up into separate Modules.
+
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
@@ -31,8 +36,6 @@ namespace MazeManiaLogic {
 	public:
 		EXPORT Game(std::string name, UINT32 id, UINT32 vWidth, 
 			UINT32 vHeight, UINT32 bpp);
-
-		//EXPORT ~Game();
 
 		EXPORT inline int GetId() const { return this->m_Id; }
 		EXPORT inline std::string GetName() const { return this->m_Name; }

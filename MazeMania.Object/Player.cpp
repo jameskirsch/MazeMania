@@ -2,11 +2,10 @@
 
 namespace MazeManiaObject {
 	
-	Player::Player(){}
-
-	Player::Player(int id) :
-		Entity(id)
+	//Initialize
+	Player::Player()
 	{
+		m_Id = 0;
 	}
 
 }

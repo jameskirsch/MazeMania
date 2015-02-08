@@ -10,9 +10,6 @@ namespace MazeManiaLogic {
 
 	bool LogicHandler::Run() {
 
-
-		
-			
 		return true;
 	}
 }

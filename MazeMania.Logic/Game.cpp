@@ -1,7 +1,7 @@
 #include "Game.h"
-#include "EventHandler.h" //Forward Declartion
-#include "LogicHandler.h" //Forward Declartion
-#include "Renderer.h" //Forward Declartion
+#include "EventHandler.h" //Forward Declaration
+#include "LogicHandler.h" //Forward Declaration
+#include "Renderer.h" //Forward Declaration
 
 namespace MazeManiaLogic {
 

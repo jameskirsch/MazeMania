@@ -1,3 +1,8 @@
+// The Player Class:
+// - Is-a Entity
+// - Is used by the Session Class. Session Has-a Collection of Players.
+// - Purpose: Will Store specific user information
+
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
@@ -12,7 +17,6 @@ namespace MazeManiaObject {
 	
 	public:
 		EXPORT Player();
-		EXPORT Player(int id);
 
 		inline void SetId(int id) { this->m_Id = id; }
 		inline int GetId() const { return m_Id; }

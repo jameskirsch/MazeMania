@@ -1,7 +1,7 @@
 // The Map Class:
 // - Is an Entity
 // - Has-a Shape, based off of a RectangleShape Class.
-// - Has-a Grid Class. The Grid represents a 3D container for 2D vectors. The Grid can be populated, and locations checked.
+// - Has-a Grid Class. The Grid can be populated, and locations checked.
 // - Is used by the Level Class. Level Class Has-a Map Class.
 
 #ifndef MAP_H_INCLUDED
@@ -36,7 +36,7 @@ namespace MazeManiaObject {
 	private:
 		std::unique_ptr<sf::RectangleShape> m_Shape;
 		std::unique_ptr<std::vector<Tile>> m_Tiles;
-		std::unique_ptr<Grid> m_Grid;
+		Grid *m_Grid;
 	};
 }
 #endif

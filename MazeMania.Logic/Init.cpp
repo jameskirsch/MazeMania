@@ -7,67 +7,53 @@ namespace MazeManiaLogic {
 	//Initialize all Game Features
 	bool Game::Init() {
 		
-
 		//TO DO: Make this value an input
 		int numTiles = 10;
+		int gridSize = numTiles;
 
-		//Psuedo
-
-		//Dice up the board with viable offset points.
-		//Store an array of offsets, with a flag condition
-
-		m_Session->GetLevel().GetMap().GetGrid().SetLayers(3);
-		auto gridPtr = m_Session->GetLevel().GetMap().GetGrid();
-		std::cout << "Grid Size: " << gridPtr.GetLayers().size() << std::endl;
-
-		// plot the points on the current map level
-
-	
-
-	
-
-
+		//Assigned to local references and make initializations
+		auto& level = m_Session->GetLevel();
+		auto& grid = m_Session->GetLevel().GetMap().GetGrid();
+		auto& map = m_Session->GetLevel().GetMap();
+		auto& mapRect = map.GetShape();
+		auto& tiles = m_Session->GetLevel().GetMap().GetTiles();
+		auto& layers = m_Session->GetLevel().GetMap().GetGrid().GetLayers();
 		
-		//Randomly select a 16x16 tile on map, mark it as visited
-		// So Each tile needs to remember the location it is placed.
-		// Make a tile that randomly selects an offset divisible by 16x16, within boundaries
-		// Mark this offset on the levels map as a taken spot. ( Taken by what layer level ? 1, 2, or 3 )
+		grid.SetLayers(4);
 
-		//While all cells in layer 2 are empty
-		// Make an inital cell location
-		// Call generate Maze
-			
 		//Set the Level, initialize tiles
 		sf::Vector2u screenSize = GetRenderWindow().getSize();
-		m_Session->GetLevel().GetMap().GetTiles().resize(numTiles * 2);
-		m_Session->GetLevel().GetMap().GetShape().setSize(sf::Vector2f(screenSize.x / 2, screenSize.y / 2));
-		m_Session->GetLevel().GetMap().GetShape().setFillColor(sf::Color::Black);
-		m_Session->GetLevel().GetMap().GetShape().setPosition
-		(((screenSize.x / 2) - (m_Session->GetLevel().GetMap().GetShape().getSize().x / 2)),
-		(screenSize.y / 2) - (m_Session->GetLevel().GetMap().GetShape().getSize().y / 2));
+		map.GetTiles().resize(numTiles * 2);
 
+		mapRect.setSize(sf::Vector2f(screenSize.x / 2, screenSize.y / 2));
+		mapRect.setFillColor(sf::Color::Black);
+		mapRect.setPosition(((screenSize.x / 2) - (mapRect.getSize().x / 2)),
+			(screenSize.y / 2) - (mapRect.getSize().y / 2));
+		
+					
+		//Populate the Grid with Cells, Per Layer
+		float x = mapRect.getPosition().x;
+		float y = mapRect.getPosition().y;
 
+		for (auto& id : layers) {
+			//TODO: Fix logic in this snippet
+			while (x < mapRect.getSize().x * 1.5 && y < mapRect.getSize().y * 1.5) {
+				
+				Cell temp;
+				temp.GetVertex().position.x = x;
+				temp.GetVertex().position.y = y;
+				temp.GetVertex().color.White;
 
+				grid.GetVerts().append(temp.GetVertex());
 
-		//Make a Temp Vector. ( testing for laying down vectors into the map, and grid layers
-		sf::Vector2f tempVector;
-		tempVector.x = m_Session->GetLevel().GetMap().GetShape().getPosition().x;
-		tempVector.y = m_Session->GetLevel().GetMap().GetShape().getPosition().y;
+				if (x > mapRect.getSize().x ) {
+					x = mapRect.getPosition().x;
+					y += 16;
+				}
 
-		while (tempVector.x < m_Session->GetLevel().GetMap().GetShape().getSize().x 
-			&& tempVector.y < m_Session->GetLevel().GetMap().GetShape().getSize().y) {
-
-			tempVector.x += 16;
-
-			std::cout << "Temp Vec X: " << tempVector.x << std::endl;
-
-			if (tempVector.x > m_Session->GetLevel().GetMap().GetShape().getSize().x) {
-				tempVector.y -= 16;
-				std::cout << "Temp Vec Y: " << tempVector.y << std::endl;
-				//tempVector.x = m_Session->GetLevel().GetMap().GetShape().getPosition().x;
+				x += 16;
 			}
 		}
-
 
 		//Lay Down Tiles Across Level
 		float tTileWidth = 0, tTileHeight = 0;
@@ -82,6 +68,12 @@ namespace MazeManiaLogic {
 
 			tTileWidth += tile.GetShape().getSize().x;
 		}
+
+		//Information about the loading.
+		std::cout << "Map Size: " << "X: " << mapRect.getSize().x << " Y: " << mapRect.getSize().y << std::endl;
+		std::cout << "Map Offset: " << "X: " << mapRect.getPosition().x << " Y: " << mapRect.getPosition().y << std::endl;
+		std::cout << "Layers Size: " << layers.size() << std::endl;
+		std::cout << "Grid Size - Cells in Grid ): " << grid.GetVerts().getVertexCount() << std::endl;
 		
 		return true;
 	}

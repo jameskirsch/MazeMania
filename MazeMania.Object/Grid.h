@@ -1,8 +1,8 @@
 // The Grid Class:
 // ---------------
-// - is a Collection of Cells from the Cell Class.
-// - is used by the Map Class. Map Has-a Grid. The Grid defines a dynamic collection of 2D vectors within the Grid ( by each Cell )
-// - Each Cell in the Grid is an X, Y coordinate. Also with with a status of being occupied or not.
+// - Has-a vertex array.
+// - is used by the Map Class. Map Has-a Grid. The Grid defines a dynamic vertex collection within the Grid ( by each Cell )
+// - Each Cell in the Grid is a Vertex. Also with with a status of being occupied or not.
 // - Has-a collection of Layers, that can be expanded dynamically.
 // - Can Set the Number of Layers, and Return those Layers to work with
 
@@ -18,7 +18,7 @@
 
 namespace MazeManiaObject {
 
-	class Grid : std::vector<Cell> {
+	class Grid {
 
 	public:
 		EXPORT Grid();
@@ -30,8 +30,12 @@ namespace MazeManiaObject {
 		//Returns the Number of Layers currently stored in the Grid ( 3 Layers by default )
 		EXPORT inline std::vector<int>& GetLayers() { return *m_Layers; }
 
+		//Return The Collection of Vertices
+		EXPORT inline sf::VertexArray& GetVerts() { return *m_Vertices; }
+
 	private:
 		std::vector<int> *m_Layers;
+		sf::VertexArray *m_Vertices;
 	};
 }
 #endif

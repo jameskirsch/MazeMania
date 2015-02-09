@@ -19,10 +19,15 @@ namespace MazeManiaLogic {
 				(m_Game->GetSession().GetLevel().GetMap().GetShape()));
 
 			//Draw Tiles on the Map
-			for (auto&i : m_Game->GetSession().GetLevel().GetMap().GetTiles() ) {
+			for (auto& i : m_Game->GetSession().GetLevel().GetMap().GetTiles() ) {
 				m_Game->GetRenderWindow().draw(static_cast<sf::RectangleShape>(i.GetShape()));
 			}
-		
+
+			//Handle Drawing Vertices on the Grid
+			auto& verts = m_Game->GetSession().GetLevel().GetMap().GetGrid().GetVerts();
+			m_Game->GetRenderWindow().draw(verts);
+
+		//Draws Window, and keeps it up to date	
 		m_Game->GetRenderWindow().display();
 			
 		return true;

@@ -3,7 +3,8 @@
 namespace MazeManiaObject {
 
 	//Initialize
-	Cell::Cell() 
+	Cell::Cell() :
+		m_Vertex(new sf::Vertex())
 	{
 		m_IsOccupied = false;
 	}

@@ -1,5 +1,5 @@
 // The Cell Class:
-// - Is-a Collection of 2D vectors, representing points X, Y. Also Represents an Occupied Space. ( initialized to False )
+// - Has-a vertex. Also Represents an Occupied Space. ( initialized to False )
 // - Belongs to the Grid Class. The Grid Has-a Collection of Cells.
 
 #ifndef CELL_H_INCLUDED
@@ -8,10 +8,11 @@
 #define EXPORT __declspec(dllexport)
 
 #include <SFML\Graphics.hpp>
+#include <memory>
 
 namespace MazeManiaObject {
 
-	class Cell : sf::Vector2f {
+	class Cell {
 
 	public:
 		EXPORT Cell();
@@ -22,8 +23,12 @@ namespace MazeManiaObject {
 		//Get Current Status of Cell
 		EXPORT inline bool GetIsOccupied() { return m_IsOccupied; }
 
+		//Return Cell's Vertex
+		EXPORT inline sf::Vertex& GetVertex() { return *m_Vertex; }
+
 	private:
 		bool m_IsOccupied;
+		sf::Vertex *m_Vertex;
 	};
 }
 #endif

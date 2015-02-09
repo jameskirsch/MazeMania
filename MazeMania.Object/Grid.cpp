@@ -4,7 +4,8 @@ namespace MazeManiaObject {
 
 	//Initialize memory
 	Grid::Grid()  :
-		m_Layers(new std::vector<int>)
+		m_Layers(new std::vector<int>),
+		m_Vertices(new sf::VertexArray())
 	{	
 	}
 

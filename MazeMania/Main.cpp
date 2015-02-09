@@ -15,7 +15,7 @@ std::string GAME_NAME = "MazeMania";
 void main(int argc, char *argv[]) {
 	
 	Game game(GAME_NAME, GAME_ID, 1024, 768, 32);
-	std::cout << "GameId: " << game.GetId() << std::endl << "Game Name: " << game.GetName() << std::endl;
+	std::cout << "Game Name: " << game.GetName() << std::endl; std::cout << "GameId: " << game.GetId() << std::endl;
 
 	game.RunGame();
 }

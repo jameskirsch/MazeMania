@@ -33,9 +33,13 @@ namespace MazeManiaObject {
 		//Return The Collection of Vertices
 		EXPORT inline sf::VertexArray& GetVerts() { return *m_Vertices; }
 
+		//Get Cell Collection
+		EXPORT inline std::vector<Cell>& GetCells() { return *m_Cells; }
+
 	private:
 		std::vector<int> *m_Layers;
 		sf::VertexArray *m_Vertices;
+		std::vector<Cell> *m_Cells;
 	};
 }
 #endif

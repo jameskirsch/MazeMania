@@ -1,12 +1,13 @@
-#include "Cell.h"
+#include "Node.h"
 
 namespace MazeManiaObject {
 
 	//Initialize
-	Cell::Cell() :
+	Node::Node() :
 		m_Vertex(new sf::Vertex()),
 		m_LayerId(0)
 	{
 		m_IsOccupied = false;
+		m_IsBoundary = false;
 	}
 }

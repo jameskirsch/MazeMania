@@ -1,9 +1,9 @@
-// The Cell Class:
+// The Node Class:
 // - Has-a vertex. Also Represents an Occupied Space. ( initialized to False )
 // - Belongs to the Grid Class. The Grid Has-a Collection of Cells.
 
-#ifndef CELL_H_INCLUDED
-#define CELL_H_INCLUDED
+#ifndef NODE_H_INCLUDED
+#define NODE_H_INCLUDED
 
 #define EXPORT __declspec(dllexport)
 
@@ -13,10 +13,10 @@
 
 namespace MazeManiaObject {
 
-	class Cell : public Entity {
+	class Node : public Entity {
 
 	public:
-		EXPORT Cell();
+		EXPORT Node();
 		
 		//Set Cell to Occupied
 		EXPORT inline void SetIsOccupied(bool set) { m_IsOccupied = set; }
@@ -33,8 +33,15 @@ namespace MazeManiaObject {
 		//Return Cell's Vertex
 		EXPORT inline sf::Vertex& GetVertex() { return *m_Vertex; }
 
+		//Set as a Boundary Node
+		EXPORT inline void SetBoundaryNode(bool boundary) { m_IsBoundary = boundary; }
+
+		//Get Boundary Status
+		EXPORT inline bool GetBoundaryStatus() { return m_IsBoundary; }
+
 	private:
 		bool m_IsOccupied;
+		bool m_IsBoundary;
 		int m_LayerId;
 		sf::Vertex *m_Vertex;
 	};

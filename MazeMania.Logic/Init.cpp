@@ -8,11 +8,12 @@ namespace MazeManiaLogic {
 	bool Game::Init() {
 		
 		//TO DO: Make these values inputs
-		int layerSize = 3;
-		float tileSize = 16;
-		int numTiles = 10;
+		int layerSize = 8;
+		float tileSize = 32;
+		int numTiles = 0;
 		
 		//Assigned to local references and make initializations
+		GridManager gridMgr;
 		auto& level = m_Session->GetLevel();
 		auto& grid = m_Session->GetLevel().GetMap().GetGrid();
 		auto& map = m_Session->GetLevel().GetMap();
@@ -20,8 +21,9 @@ namespace MazeManiaLogic {
 		auto& tiles = m_Session->GetLevel().GetMap().GetTiles();
 		auto& layers = m_Session->GetLevel().GetMap().GetGrid().GetLayers();
 		auto& verts = m_Session->GetLevel().GetMap().GetGrid().GetVerts();
-		auto& cells = grid.GetCells();
+		auto& nodes = grid.GetNodes();
 		
+		gridMgr.SetGrid(grid);	
 		grid.SetLayers(layerSize);
 
 		//Set the Level, initialize tiles
@@ -42,15 +44,15 @@ namespace MazeManiaLogic {
 			//Check if the current position for each vertex is in bounds, and create a new one until map is full.
 			while (x < mapRect.getSize().x *1.5 && y < mapRect.getSize().y * 1.5) {
 				
-				Cell temp;
-				temp.SetId(id);
-				temp.SetLayerId(lyr);
-				temp.GetVertex().position.x = x;
-				temp.GetVertex().position.y = y;
-				temp.GetVertex().color.White;
+				Node tempNode;
+				tempNode.SetId(id);
+				tempNode.SetLayerId(lyr);
+				tempNode.GetVertex().position.x = x;
+				tempNode.GetVertex().position.y = y;
+				tempNode.GetVertex().color.White;
 
-				grid.GetVerts().append(temp.GetVertex());
-				grid.GetCells().push_back(temp);
+				grid.GetVerts().append(tempNode.GetVertex());
+				grid.GetNodes().push_back(tempNode);
 
 				x += tileSize;
 				id += 1;
@@ -60,10 +62,6 @@ namespace MazeManiaLogic {
 					y += tileSize;					
 				}			
 			}
-		}
-
-		for (auto& i : cells){
-			std::cout << i.GetLayerId() << std::endl;
 		}
 
 		//Lay Down Tiles Across Level
@@ -88,6 +86,18 @@ namespace MazeManiaLogic {
 		std::cout << "Total Vertices: " << grid.GetVerts().getVertexCount() << std::endl;
 		std::cout << "Vertices Per Layer: " << grid.GetVerts().getVertexCount() / layers.size() << std::endl;
 		std::cout << "Total Tiles: " << tiles.size() << std::endl;
+
+		auto& n = gridMgr.GetNode(map.GetShape().getPosition().x, map.GetShape().getPosition().y, 5);
+		std::cout << "Node Location: " << "X " << n.GetVertex().position.x << " Y: " << n.GetVertex().position.y << std::endl;
+
+		auto& nn = gridMgr.GetNodeNeighbors(0,0,1,tileSize);
+
+		for each (Node item in nn) {
+			std::cout << "Node Neighbor Id: " << item.GetId() << std::endl;
+			std::cout << "Node Neighbor Position: XY " << item.GetVertex().position.x << " " << item.GetVertex().position.y << std::endl;
+			std::cout << "Node Neighbor is Occupied " << item.GetIsOccupied() << std::endl;
+			std::cout << "Node Neighbor is a Boundary" << item.GetBoundaryStatus() << std::endl;
+		}
 		
 		return true;
 	}

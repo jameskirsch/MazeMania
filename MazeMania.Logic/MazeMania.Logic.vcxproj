@@ -84,6 +84,7 @@
     <ClInclude Include="Init.h" />
     <ClInclude Include="LogicHandler.h" />
     <ClInclude Include="MazeMania.Logic.h" />
+    <ClInclude Include="GridManager.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StateMachine.h" />
@@ -94,6 +95,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="LogicHandler.cpp" />
+    <ClCompile Include="GridManager.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>

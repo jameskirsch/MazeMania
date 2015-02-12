@@ -6,14 +6,14 @@ namespace MazeManiaObject {
 	Grid::Grid()  :
 		m_Layers(new std::vector<int>),
 		m_Vertices(new sf::VertexArray()),
-		m_Cells(new std::vector<Cell>)
+		m_Nodes(new std::vector<Node>)
 	{	
 	}
 
 	//Free memory
 	Grid::~Grid() {
 		delete m_Layers;
-		delete m_Cells;
+		delete m_Nodes;
 	}
 
 	//Populates Layers based on Input
@@ -27,4 +27,5 @@ namespace MazeManiaObject {
 			m_Layers->push_back(i);			
 		}		
 	}
+
 }

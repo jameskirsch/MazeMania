@@ -11,10 +11,11 @@
 
 #define EXPORT __declspec(dllexport)
 
+#include <iostream>
 #include <SFML\Graphics.hpp>
 #include <memory>
 #include <vector>
-#include "Cell.h"
+#include "Node.h"
 
 namespace MazeManiaObject {
 
@@ -34,12 +35,12 @@ namespace MazeManiaObject {
 		EXPORT inline sf::VertexArray& GetVerts() { return *m_Vertices; }
 
 		//Get Cell Collection
-		EXPORT inline std::vector<Cell>& GetCells() { return *m_Cells; }
+		EXPORT inline std::vector<Node>& GetNodes() { return *m_Nodes; }
 
 	private:
 		std::vector<int> *m_Layers;
 		sf::VertexArray *m_Vertices;
-		std::vector<Cell> *m_Cells;
+		std::vector<Node> *m_Nodes;
 	};
 }
 #endif

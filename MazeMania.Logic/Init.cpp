@@ -8,12 +8,13 @@ namespace MazeManiaLogic {
 	bool Game::Init() {
 		
 		//TO DO: Make these values inputs
-		int layerSize = 8;
+		int layerSize = 1;
 		float tileSize = 32;
 		int numTiles = 0;
 		
 		//Assigned to local references and make initializations
-		GridManager gridMgr;
+		auto& gridMgr = m_GridMgr;
+
 		auto& level = m_Session->GetLevel();
 		auto& grid = m_Session->GetLevel().GetMap().GetGrid();
 		auto& map = m_Session->GetLevel().GetMap();
@@ -23,13 +24,13 @@ namespace MazeManiaLogic {
 		auto& verts = m_Session->GetLevel().GetMap().GetGrid().GetVerts();
 		auto& nodes = grid.GetNodes();
 		
-		gridMgr.SetGrid(grid);	
+		gridMgr->SetGrid(grid);	
 		grid.SetLayers(layerSize);
 
 		//Set the Level, initialize tiles
 		sf::Vector2u screenSize = GetRenderWindow().getSize();
 
-		mapRect.setSize(sf::Vector2f( screenSize.x / 2, screenSize.y / 2));
+		mapRect.setSize(sf::Vector2f( screenSize.x / 2.f, screenSize.y / 2.f));
 		mapRect.setFillColor(sf::Color::Black);
 		mapRect.setPosition(((screenSize.x / 2) - (mapRect.getSize().x / 2)),
 			(screenSize.y / 2) - (mapRect.getSize().y / 2));
@@ -44,15 +45,15 @@ namespace MazeManiaLogic {
 			//Check if the current position for each vertex is in bounds, and create a new one until map is full.
 			while (x < mapRect.getSize().x *1.5 && y < mapRect.getSize().y * 1.5) {
 				
-				Node tempNode;
-				tempNode.SetId(id);
-				tempNode.SetLayerId(lyr);
-				tempNode.GetVertex().position.x = x;
-				tempNode.GetVertex().position.y = y;
-				tempNode.GetVertex().color.White;
+				Node *tempNode = new Node();
+				tempNode->SetId(id);
+				tempNode->SetLayerId(lyr);
+				tempNode->GetVertex().position.x = x;
+				tempNode->GetVertex().position.y = y;
+				tempNode->GetVertex().color = sf::Color::White;
 
-				grid.GetVerts().append(tempNode.GetVertex());
-				grid.GetNodes().push_back(tempNode);
+				grid.GetVerts().append(tempNode->GetVertex());
+				grid.GetNodes().push_back(*tempNode);
 
 				x += tileSize;
 				id += 1;
@@ -87,17 +88,19 @@ namespace MazeManiaLogic {
 		std::cout << "Vertices Per Layer: " << grid.GetVerts().getVertexCount() / layers.size() << std::endl;
 		std::cout << "Total Tiles: " << tiles.size() << std::endl;
 
-		auto& n = gridMgr.GetNode(map.GetShape().getPosition().x, map.GetShape().getPosition().y, 5);
-		std::cout << "Node Location: " << "X " << n.GetVertex().position.x << " Y: " << n.GetVertex().position.y << std::endl;
+		//auto& n = gridMgr.GetNodeLocation(map.GetShape().getPosition().x + tileSize, map.GetShape().getPosition().y, 1);
+		//std::cout << "Node Location: " << "X " << n.GetVertex().position.x << " Y: " << n.GetVertex().position.y << std::endl;
+		
+		
+		//std::cout << n.GetVertex().color << std::endl;
+		//auto& nn = gridMgr.GetNodeNeighbors(0,0,1,tileSize);
 
-		auto& nn = gridMgr.GetNodeNeighbors(0,0,1,tileSize);
-
-		for each (Node item in nn) {
+		/*for each (Node item in nn) {
 			std::cout << "Node Neighbor Id: " << item.GetId() << std::endl;
 			std::cout << "Node Neighbor Position: XY " << item.GetVertex().position.x << " " << item.GetVertex().position.y << std::endl;
 			std::cout << "Node Neighbor is Occupied " << item.GetIsOccupied() << std::endl;
 			std::cout << "Node Neighbor is a Boundary" << item.GetBoundaryStatus() << std::endl;
-		}
+		}*/
 		
 		return true;
 	}

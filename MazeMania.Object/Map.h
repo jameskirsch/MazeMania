@@ -33,6 +33,9 @@ namespace MazeManiaObject {
 		//Return the Grid, this is to be populated with Tiles per Layer.
 		EXPORT inline Grid& GetGrid() { return *m_Grid; }
 
+
+		//Return Origin X;
+
 	private:
 		std::unique_ptr<sf::RectangleShape> m_Shape;
 		std::unique_ptr<std::vector<Tile>> m_Tiles;

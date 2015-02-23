@@ -14,6 +14,7 @@ typedef unsigned int UINT32;
 #include <MazeMania.Object.h>
 #include <MazeMania.Data.h>
 #include "Session.h"
+#include "GridManager.h"
 #include "EventHandler.h"
 #include "LogicHandler.h"
 #include "Renderer.h"
@@ -52,6 +53,9 @@ namespace MazeManiaLogic {
 		
 		//Returns a Collection of Game Maps
 		EXPORT inline Session& GetSession() { return *m_Session; }
+
+		//Get Grid Mgr
+		EXPORT inline GridManager& GetGridMgr() { return *m_GridMgr; }
 	
 	protected:
 		int m_Id;
@@ -65,6 +69,7 @@ namespace MazeManiaLogic {
 		std::unique_ptr<LogicHandler> m_LogicHandler;
 		std::unique_ptr<Renderer> m_Renderer;
 		std::unique_ptr<Session> m_Session;
+		std::unique_ptr<GridManager> m_GridMgr;
 	};
 }
 #endif

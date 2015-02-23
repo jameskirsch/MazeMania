@@ -15,7 +15,8 @@ namespace MazeManiaLogic {
 		m_EventHandler(new EventHandler(*this)),
 		m_LogicHandler(new LogicHandler(*this)),
 		m_Renderer(new Renderer(*this)),
-		m_Session(new Session())
+		m_Session(new Session()),
+		m_GridMgr(new GridManager())
 	{
 		//Provides Information about the Game
 		this->m_Id = id;

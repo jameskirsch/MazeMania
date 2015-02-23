@@ -13,7 +13,6 @@ namespace MazeManiaObject {
 	//Free memory
 	Grid::~Grid() {
 		delete m_Layers;
-		delete m_Nodes;
 	}
 
 	//Populates Layers based on Input

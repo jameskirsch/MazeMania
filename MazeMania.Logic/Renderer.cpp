@@ -26,7 +26,7 @@ namespace MazeManiaLogic {
 			//Handle Drawing Vertices on the Grid
 			auto& verts = m_Game->GetSession().GetLevel().GetMap().GetGrid().GetVerts();
 			m_Game->GetRenderWindow().draw(verts);
-
+			
 		//Draws Window, and keeps it up to date	
 		m_Game->GetRenderWindow().display();
 			

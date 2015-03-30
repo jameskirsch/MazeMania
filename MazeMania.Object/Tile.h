@@ -7,6 +7,7 @@
 #include "SFML\System.hpp"
 #include "SFML\Graphics.hpp"
 #include "Entity.h"
+#include "Node.h"
 
 namespace MazeManiaObject {
 
@@ -14,11 +15,14 @@ namespace MazeManiaObject {
 
 	public:
 		EXPORT Tile();
-		inline sf::RectangleShape& GetShape() { return *m_Shape; }
+		EXPORT inline sf::RectangleShape& GetShape() { return *m_Shape; }
+		EXPORT inline std::shared_ptr<Node>& GetNode() { return m_Node; }
+		EXPORT inline void SetNode(Node& node) { *m_Node = node; }
 
 	private:
 		int m_TileTypeId;
 		sf::RectangleShape *m_Shape;
+		std::shared_ptr<Node> m_Node;
 	};
 }
 #endif

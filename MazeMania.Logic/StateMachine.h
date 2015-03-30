@@ -15,7 +15,6 @@ namespace MazeManiaLogic {
 	
 	private:
 		bool m_IsCurrent;
-		//std::string m_Name;
 	};
 
 	class StateMachine {

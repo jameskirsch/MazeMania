@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Generator.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="LogicHandler.h" />
     <ClInclude Include="MazeMania.Logic.h" />
@@ -93,6 +94,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Generator.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="LogicHandler.cpp" />
     <ClCompile Include="GridManager.cpp" />

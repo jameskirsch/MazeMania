@@ -5,6 +5,7 @@
 #include <algorithm>
 #include "Game.h"
 #include "GridManager.h"
+#include "Generator.h"
 
 #endif
 

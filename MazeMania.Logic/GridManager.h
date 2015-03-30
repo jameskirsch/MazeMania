@@ -17,7 +17,6 @@ namespace MazeManiaLogic {
 
 	public:
 		EXPORT GridManager();
-		EXPORT ~GridManager();
 
 		//Set Grid
 		EXPORT inline void SetGrid(Grid& grid) { *m_Grid = grid; }
@@ -32,7 +31,10 @@ namespace MazeManiaLogic {
 		EXPORT inline sf::VertexArray& GetVertexArray() { return m_Grid->GetVerts(); }
 
 		//Get Node Neighbors ( select a node by position
-		//EXPORT std::vector<std::shared_ptr<Node>>& GetNodeNeighbors(float x, float y, int lyr, float tileSize);
+		EXPORT std::vector<std::shared_ptr<Node>>& GetNodeNeighbors(float x, float y, int lyr, float tileSize);
+
+		//Creates Boundary Nodes around the existing Grid
+		EXPORT void SetBoundaryNodes(float mapSizeX, float mapSizeY, std::vector<Node>& nodes);
 
 	private:
 		Grid *m_Grid;	

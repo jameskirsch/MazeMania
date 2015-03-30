@@ -5,16 +5,16 @@
 namespace MazeManiaLogic {
 
 	//Initialize all Game Features
+	//Methods this big are terrible practice
 	bool Game::Init() {
 		
 		//TO DO: Make these values inputs
 		int layerSize = 1;
-		float tileSize = 32;
-		int numTiles = 0;
+		float tileSize = 16;
+		int numTiles = 4;
 		
 		//Assigned to local references and make initializations
 		auto& gridMgr = m_GridMgr;
-
 		auto& level = m_Session->GetLevel();
 		auto& grid = m_Session->GetLevel().GetMap().GetGrid();
 		auto& map = m_Session->GetLevel().GetMap();
@@ -24,9 +24,9 @@ namespace MazeManiaLogic {
 		auto& verts = m_Session->GetLevel().GetMap().GetGrid().GetVerts();
 		auto& nodes = grid.GetNodes();
 		
-		gridMgr->SetGrid(grid);	
+		gridMgr->SetGrid(grid);
 		grid.SetLayers(layerSize);
-
+		
 		//Set the Level, initialize tiles
 		sf::Vector2u screenSize = GetRenderWindow().getSize();
 
@@ -37,24 +37,88 @@ namespace MazeManiaLogic {
 							
 		//Populate the Grid with Cells, Per Layer. TODO: Figure out why 1.5 is needed, add ID.
 		int id = 1;
+		nodes.reserve((map.GetShape().getSize().x / tileSize) * layerSize);
+		verts.resize((map.GetShape().getSize().x / tileSize) * layerSize);
 		for (auto& lyr : layers) {
 
+			//Coordinates
 			float x = mapRect.getPosition().x;
 			float y = mapRect.getPosition().y;
 
 			//Check if the current position for each vertex is in bounds, and create a new one until map is full.
 			while (x < mapRect.getSize().x *1.5 && y < mapRect.getSize().y * 1.5) {
 				
-				Node *tempNode = new Node();
+				//Create Boundary Nodes on North
+				if (y == mapRect.getPosition().y) {
+					std::unique_ptr<Node> tempNode(new Node);
+					tempNode->SetId(id);
+					tempNode->SetLayerId(lyr);
+					tempNode->SetBoundaryNode(true);
+					tempNode->GetVertex().position.x = x;
+					tempNode->GetVertex().position.y = y - tileSize;
+					tempNode->GetVertex().color = sf::Color::Red;
+					grid.GetNodes().push_back(*tempNode);
+					grid.GetVerts().append(tempNode->GetVertex());
+					verts.append(tempNode->GetVertex());
+					id += 1;			
+				}
+
+				//Create Boundary Nodes on West
+				if (x == mapRect.getPosition().x) {
+					std::unique_ptr<Node> tempNode(new Node);
+					tempNode->SetId(id);
+					tempNode->SetLayerId(lyr);
+					tempNode->SetBoundaryNode(true);
+					tempNode->GetVertex().position.x = x - tileSize;
+					tempNode->GetVertex().position.y = y;
+					tempNode->GetVertex().color = sf::Color::Red;
+					grid.GetNodes().push_back(*tempNode);
+					grid.GetVerts().append(tempNode->GetVertex());
+					verts.append(tempNode->GetVertex());
+					id += 1;
+				}
+
+				//Create Boundary Nodes East
+				if (x == (mapRect.getSize().x * 1.5) - tileSize) {
+					std::unique_ptr<Node> tempNode(new Node);
+					tempNode->SetId(id);
+					tempNode->SetLayerId(lyr);
+					tempNode->SetBoundaryNode(true);
+					tempNode->GetVertex().position.x = x + tileSize;
+					tempNode->GetVertex().position.y = y;
+					tempNode->GetVertex().color = sf::Color::Red;
+					grid.GetNodes().push_back(*tempNode);
+					grid.GetVerts().append(tempNode->GetVertex());
+					verts.append(tempNode->GetVertex());
+					id += 1;
+				}
+
+				//Create Boundary Nodes South
+				if (y == (mapRect.getSize().y * 1.5) - tileSize) {
+					std::unique_ptr<Node> tempNode(new Node);
+					tempNode->SetId(id);
+					tempNode->SetLayerId(lyr);
+					tempNode->SetBoundaryNode(true);
+					tempNode->GetVertex().position.x = x;
+					tempNode->GetVertex().position.y = y + tileSize;
+					tempNode->GetVertex().color = sf::Color::Red;
+					grid.GetNodes().push_back(*tempNode);
+					grid.GetVerts().append(tempNode->GetVertex());
+					verts.append(tempNode->GetVertex());
+					id += 1;
+				}
+
+				//Create a Node that is unoccupied within the map
+				std::unique_ptr<Node> tempNode(new Node);	
 				tempNode->SetId(id);
 				tempNode->SetLayerId(lyr);
 				tempNode->GetVertex().position.x = x;
 				tempNode->GetVertex().position.y = y;
 				tempNode->GetVertex().color = sf::Color::White;
-
-				grid.GetVerts().append(tempNode->GetVertex());
 				grid.GetNodes().push_back(*tempNode);
-
+				grid.GetVerts().append(tempNode->GetVertex());
+				verts.append(tempNode->GetVertex());
+				
 				x += tileSize;
 				id += 1;
 
@@ -65,19 +129,9 @@ namespace MazeManiaLogic {
 			}
 		}
 
-		//Lay Down Tiles Across Level
-		float tTileWidth = 0, tTileHeight = 0;
-
-		map.GetTiles().resize(numTiles * 2);
-		
-
-		for (auto &tile : tiles) {
-
-			tile.GetShape().setSize(sf::Vector2f(tileSize,tileSize));
-			tile.GetShape().setFillColor(sf::Color::Red);
-			tile.GetShape().setPosition(mapRect.getPosition().x + tTileWidth, mapRect.getPosition().y + tTileHeight);
-			tTileWidth += tile.GetShape().getSize().x;
-		}
+		//Create and Generator The Maze
+		std::unique_ptr<Generator> generator(new Generator(*m_Session));
+		generator->GenerateMaze(tileSize);
 
 		//Information about the loading.
 		std::cout << "Map Size: " << "X: " << mapRect.getSize().x << " Y: " << mapRect.getSize().y << std::endl;
@@ -87,20 +141,6 @@ namespace MazeManiaLogic {
 		std::cout << "Total Vertices: " << grid.GetVerts().getVertexCount() << std::endl;
 		std::cout << "Vertices Per Layer: " << grid.GetVerts().getVertexCount() / layers.size() << std::endl;
 		std::cout << "Total Tiles: " << tiles.size() << std::endl;
-
-		//auto& n = gridMgr.GetNodeLocation(map.GetShape().getPosition().x + tileSize, map.GetShape().getPosition().y, 1);
-		//std::cout << "Node Location: " << "X " << n.GetVertex().position.x << " Y: " << n.GetVertex().position.y << std::endl;
-		
-		
-		//std::cout << n.GetVertex().color << std::endl;
-		//auto& nn = gridMgr.GetNodeNeighbors(0,0,1,tileSize);
-
-		/*for each (Node item in nn) {
-			std::cout << "Node Neighbor Id: " << item.GetId() << std::endl;
-			std::cout << "Node Neighbor Position: XY " << item.GetVertex().position.x << " " << item.GetVertex().position.y << std::endl;
-			std::cout << "Node Neighbor is Occupied " << item.GetIsOccupied() << std::endl;
-			std::cout << "Node Neighbor is a Boundary" << item.GetBoundaryStatus() << std::endl;
-		}*/
 		
 		return true;
 	}

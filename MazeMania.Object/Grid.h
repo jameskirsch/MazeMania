@@ -37,10 +37,14 @@ namespace MazeManiaObject {
 		//Get Cell Collection : Owns a 
 		EXPORT inline std::vector<Node>& GetNodes() { return *m_Nodes; }
 
+		//Get Boundary Node Collection
+		EXPORT inline std::vector<Node>& GetBoundaryNodes() { return *m_BoundaryNodes; }
+
 	private:
 		std::vector<int> *m_Layers;
 		sf::VertexArray *m_Vertices;
 		std::vector<Node> *m_Nodes;
+		std::vector<Node> *m_BoundaryNodes;
 	};
 }
 #endif

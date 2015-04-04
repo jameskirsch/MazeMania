@@ -2,14 +2,13 @@
 
 namespace MazeManiaLogic {
 
-	Generator::Generator(Session& session) : m_Session(session) { }
+	Generator::Generator(Session& session, GridManager& gridMgr) : m_Session(session), m_GridMgr(gridMgr) { }
 
 	//Will use the Grid to Generate a Maze
 	void Generator::GenerateMaze(float tileSize) {
 
 		auto& map = m_Session.GetLevel().GetMap();
 		auto& grid = m_Session.GetLevel().GetMap().GetGrid();
-		auto& tiles = m_Session.GetLevel().GetMap().GetTiles();
 		auto& nodes = m_Session.GetLevel().GetMap().GetGrid().GetNodes();
 		auto& mapRect = map.GetShape();
 
@@ -23,7 +22,13 @@ namespace MazeManiaLogic {
 				tile->GetShape().setPosition(node.GetVertex().position.x, node.GetVertex().position.y);
 				tile->SetNode(node);
 				map.GetTiles().push_back(*tile);
+				node.SetIsOccupied(true);
 			}
 		}
+
+		//256, 192 ( first Node )
+		auto selectedNode = this->m_GridMgr.GetNodeByLocation(256, 192, 1);
+		auto& nodeNeighbors = this->m_GridMgr.GetNodeNeighbors(selectedNode, tileSize, 1);
+			
 	}
 }

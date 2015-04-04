@@ -39,6 +39,7 @@ namespace MazeManiaLogic {
 		int id = 1;
 		nodes.reserve((map.GetShape().getSize().x / tileSize) * layerSize);
 		verts.resize((map.GetShape().getSize().x / tileSize) * layerSize);
+		
 		for (auto& lyr : layers) {
 
 			//Coordinates
@@ -130,7 +131,7 @@ namespace MazeManiaLogic {
 		}
 
 		//Create and Generator The Maze
-		std::unique_ptr<Generator> generator(new Generator(*m_Session));
+		std::unique_ptr<Generator> generator(new Generator(*m_Session, *gridMgr));
 		generator->GenerateMaze(tileSize);
 
 		//Information about the loading.

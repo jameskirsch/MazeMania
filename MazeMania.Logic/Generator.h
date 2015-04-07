@@ -12,12 +12,19 @@ namespace MazeManiaLogic {
 	class Generator {
 
 	public:
+		//EXPORT Generator();
 		EXPORT Generator(Session& session, GridManager& gridMgr);
 		EXPORT void GenerateMaze(float tileSize);
 
+		//EXPORT inline void SetSession(Session* session) { m_Session = *session; }
+		//EXPORT inline void SetGridMgr(GridManager* gridMgr) { m_GridMgr = *gridMgr; }
+		/*EXPORT inline Session& GetSession() { return m_Session; }
+		EXPORT inline GridManager& GetGridMgr() { return m_GridMgr; }*/
+
 	private:
-		Session& m_Session;
-		GridManager& m_GridMgr;
+		Session* m_Session;
+		GridManager* m_GridMgr;
+		Node* m_CurrentNode;
 	};
 }
 

@@ -7,6 +7,7 @@
 #include <SFML\Graphics.hpp>
 #include "Node.h"
 #include "Grid.h"
+#include <stack>
 
 using namespace MazeManiaObject;
 
@@ -25,7 +26,7 @@ namespace MazeManiaLogic {
 		EXPORT Node& GetNodeId(int id);
 
 		//Get Single Node by Position
-		EXPORT Node& GetNodeByLocation(float x, float y, int lyr);
+		EXPORT Node& GetNodeByLocation(std::vector<Node>& nodeCollection, float x, float y, int lyr);
 
 		//Create a new node on Grid
 		//EXPORT void CreateNode()
@@ -34,7 +35,7 @@ namespace MazeManiaLogic {
 		EXPORT inline sf::VertexArray& GetVertexArray() { return m_Grid->GetVerts(); }
 
 		//Get Node Neighbors ( select a node by position
-		EXPORT std::vector<Node>& GetNodeNeighbors(Node& node, float tileSize, int lyr);
+		EXPORT std::vector<Node> GetNodeNeighbors(std::vector<Node>& nodes, Node& node, float tileSize, int lyr);
 
 		//Creates Boundary Nodes around the existing Grid
 		EXPORT void SetBoundaryNodes(float mapSizeX, float mapSizeY, std::vector<Node>& nodes);

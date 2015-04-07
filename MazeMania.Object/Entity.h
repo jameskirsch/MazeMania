@@ -17,7 +17,7 @@ namespace MazeManiaObject {
 
 		inline void SetId(int id) { this->m_Id = id; }
 		inline void SetName(std::string name) { this->m_Name = name; }
-		EXPORT inline int GetId() const { return this->m_Id; }
+		EXPORT inline int GetId() { return this->m_Id; }
 		EXPORT inline std::string GetName() const { return this->m_Name; }
 
 	protected:

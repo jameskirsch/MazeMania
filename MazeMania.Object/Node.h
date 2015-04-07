@@ -10,6 +10,7 @@
 #include <SFML\Graphics.hpp>
 #include <memory>
 #include "Entity.h"
+#include "Tile.h"
 
 namespace MazeManiaObject {
 
@@ -41,10 +42,22 @@ namespace MazeManiaObject {
 
 		EXPORT inline void ChangeColor(sf::Color color) { m_Vertex.get()->color = color; }
 
+		//Set a Tile to the Node
+		EXPORT inline void SetTile(Tile& tile) { *m_Tile = tile; }
+
+		//Get the Current Tile Occupied on the Node
+		EXPORT inline Tile& GetTile() { return *m_Tile; }
+
+		//Get & Set visited
+		EXPORT inline void SetVisited(bool visited) { m_Visited = visited; }
+		EXPORT inline bool GetVisitedStatus() { return m_Visited; }
+
 	private:
 		bool m_IsOccupied;
 		bool m_IsBoundary;
+		bool m_Visited;
 		int m_LayerId;
+		Tile* m_Tile;
 		std::shared_ptr<sf::Vertex> m_Vertex;
 	};
 }

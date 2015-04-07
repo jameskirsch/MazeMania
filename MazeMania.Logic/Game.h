@@ -18,6 +18,7 @@ typedef unsigned int UINT32;
 #include "EventHandler.h"
 #include "LogicHandler.h"
 #include "Renderer.h"
+#include "Generator.h"
 #include <iostream>
 #include <memory>
 #include "SFML\System.hpp"

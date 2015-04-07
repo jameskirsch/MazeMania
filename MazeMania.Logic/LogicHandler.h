@@ -5,6 +5,7 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Window.hpp>
 #include "GridManager.h"
+#include "Generator.h"
 #include <memory>
 
 namespace MazeManiaLogic {
@@ -16,11 +17,11 @@ namespace MazeManiaLogic {
 	public:
 		LogicHandler(Game &pGame);
 
-		bool Run();
+		bool Run(Generator& generator);
 
 	private:
+		bool m_HasGenerator;
 		Game *m_Game;
-
 	};
 }
 #endif

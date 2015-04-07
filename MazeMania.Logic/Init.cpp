@@ -131,8 +131,8 @@ namespace MazeManiaLogic {
 		}
 
 		//Create and Generator The Maze
-		std::unique_ptr<Generator> generator(new Generator(*m_Session, *gridMgr));
-		generator->GenerateMaze(tileSize);
+		//std::unique_ptr<Generator> generator(new Generator(*m_Session, *gridMgr));
+		//generator->GenerateMaze(tileSize);
 
 		//Information about the loading.
 		std::cout << "Map Size: " << "X: " << mapRect.getSize().x << " Y: " << mapRect.getSize().y << std::endl;

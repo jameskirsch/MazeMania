@@ -27,8 +27,12 @@ namespace MazeManiaLogic {
 	void Game::RunGame() {
 
 		bool isRunning;
+		
 		//Run Init, if anything should fail, catch the exception here.
 		this->Init() == true ? isRunning = true : isRunning = false;
+
+		//Create Generator
+		Generator *generator = new Generator(*this->m_Session.get(), *this->m_GridMgr.get());
 
 		//The Main Game Loop
 		while (m_Window->isOpen() && isRunning) {
@@ -37,7 +41,7 @@ namespace MazeManiaLogic {
 			if (!this->m_EventHandler->RunEvents()) isRunning = false;
 
 			//Run Game Logic
-			this->m_LogicHandler->Run();
+			this->m_LogicHandler->Run(*generator);
 
 			//Run Game Rendering 
 			this->m_Renderer->Run();

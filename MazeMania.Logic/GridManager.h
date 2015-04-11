@@ -26,10 +26,13 @@ namespace MazeManiaLogic {
 		EXPORT Node& GetNodeId(int id);
 
 		//Get Single Node by Position
-		EXPORT Node& GetNodeByLocation(std::vector<Node>& nodeCollection, float x, float y, int lyr);
+		EXPORT Node& GetNodeByLocation(std::vector<Node> nodeCollection, float x, float y, int lyr);
 
-		//Create a new node on Grid
-		//EXPORT void CreateNode()
+		//Set TileSize
+		EXPORT inline void SetTileSize(float tileSize) { m_TileSize = tileSize; }
+
+		//Get TileSize
+		EXPORT inline float GetTileSize() { return m_TileSize; }
 
 		//Get Vertex Array
 		EXPORT inline sf::VertexArray& GetVertexArray() { return m_Grid->GetVerts(); }
@@ -42,6 +45,7 @@ namespace MazeManiaLogic {
 
 	private:
 		Grid *m_Grid;
+		float m_TileSize;
 		std::shared_ptr<Node> m_NodeCursor;
 	};
 }

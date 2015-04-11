@@ -10,7 +10,7 @@ namespace MazeManiaLogic {
 		
 		//TO DO: Make these values inputs
 		int layerSize = 1;
-		float tileSize = 16;
+		float tileSize = 8;
 		int numTiles = 4;
 		
 		//Assigned to local references and make initializations
@@ -25,6 +25,7 @@ namespace MazeManiaLogic {
 		auto& nodes = grid.GetNodes();
 		
 		gridMgr->SetGrid(grid);
+		gridMgr->SetTileSize(tileSize);
 		grid.SetLayers(layerSize);
 		
 		//Set the Level, initialize tiles
@@ -51,7 +52,7 @@ namespace MazeManiaLogic {
 				
 				//Create Boundary Nodes on North
 				if (y == mapRect.getPosition().y) {
-					std::unique_ptr<Node> tempNode(new Node);
+					Node* tempNode = new Node();
 					tempNode->SetId(id);
 					tempNode->SetLayerId(lyr);
 					tempNode->SetBoundaryNode(true);
@@ -66,7 +67,7 @@ namespace MazeManiaLogic {
 
 				//Create Boundary Nodes on West
 				if (x == mapRect.getPosition().x) {
-					std::unique_ptr<Node> tempNode(new Node);
+					Node* tempNode = new Node();
 					tempNode->SetId(id);
 					tempNode->SetLayerId(lyr);
 					tempNode->SetBoundaryNode(true);
@@ -81,7 +82,7 @@ namespace MazeManiaLogic {
 
 				//Create Boundary Nodes East
 				if (x == (mapRect.getSize().x * 1.5) - tileSize) {
-					std::unique_ptr<Node> tempNode(new Node);
+					Node* tempNode = new Node();
 					tempNode->SetId(id);
 					tempNode->SetLayerId(lyr);
 					tempNode->SetBoundaryNode(true);
@@ -96,7 +97,7 @@ namespace MazeManiaLogic {
 
 				//Create Boundary Nodes South
 				if (y == (mapRect.getSize().y * 1.5) - tileSize) {
-					std::unique_ptr<Node> tempNode(new Node);
+					Node* tempNode = new Node();
 					tempNode->SetId(id);
 					tempNode->SetLayerId(lyr);
 					tempNode->SetBoundaryNode(true);
@@ -110,7 +111,7 @@ namespace MazeManiaLogic {
 				}
 
 				//Create a Node that is unoccupied within the map
-				std::unique_ptr<Node> tempNode(new Node);	
+				Node* tempNode = new Node();
 				tempNode->SetId(id);
 				tempNode->SetLayerId(lyr);
 				tempNode->GetVertex().position.x = x;

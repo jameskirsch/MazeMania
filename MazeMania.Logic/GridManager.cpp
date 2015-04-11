@@ -12,9 +12,9 @@ namespace MazeManiaLogic {
 	}
 
 	//Get a Single Node by Position
-	Node& GridManager::GetNodeByLocation(std::vector<Node>& nodes, float x, float y, int lyr) {
-		auto& node = std::find_if(nodes.begin(), nodes.end(), [x, y, lyr](Node& n) {
-		return n.GetVertex().position.x == x && n.GetVertex().position.y == y && n.GetLayerId() == lyr; });			
+	Node& GridManager::GetNodeByLocation(std::vector<Node> nodes, float x, float y, int lyr) {
+		auto& node = std::find_if(m_Grid->GetNodes().begin(), m_Grid->GetNodes().end(), [&x, &y, &lyr, &nodes](Node& n) {
+			return n.GetVertex().position.x == x && n.GetVertex().position.y == y && n.GetLayerId() == lyr; });
 		return *node;
 	}
 

@@ -20,7 +20,7 @@ namespace MazeManiaLogic {
 		//	m_HasGenerator = true;	
 		//}
 		
-		generator.GenerateMaze(16);
+		generator.GenerateMaze(m_Game->GetGridMgr().GetTileSize());
 		
 		return true;
 	}

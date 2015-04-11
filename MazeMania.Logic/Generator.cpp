@@ -10,6 +10,7 @@ namespace MazeManiaLogic {
 	{ 	
 		m_Session = &session;
 		m_GridMgr = &gridMgr;
+		srand(time(0));
 	}
 
 	//Will use the Grid to Generate a Maze
@@ -32,9 +33,10 @@ namespace MazeManiaLogic {
 		// Maze Algorithm ( create tiles on first layer of grid )
 
 		if (m_CurrentNode == nullptr) {
-			m_CurrentNode = new Node();
-			m_CurrentNode = &m_GridMgr->GetNodeByLocation(nodes, 256, 192, 1);
+			m_CurrentNode = &m_GridMgr->GetNodeByLocation(nodes, map.GetShape().getPosition().x , map.GetShape().getPosition().y, 1);
 		}
+
+		m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Black);
 		
 		if (tiles.size() == 0) {
 			for (auto& node : nodes) {
@@ -51,63 +53,108 @@ namespace MazeManiaLogic {
 			}
 		}
 
-		auto& endNode = m_GridMgr->GetNodeByLocation(nodes, 256, 192 + (tileSize * 6), 1);
+		auto endNode = m_GridMgr->GetNodeByLocation(nodes, map.GetShape().getPosition().x + map.GetShape().getSize().x - tileSize, map.GetShape().getPosition().y, 1);
+		endNode.GetTile().GetShape().setFillColor(sf::Color::Red);
 		
 		if (m_CurrentNode->GetId() != endNode.GetId() && m_CurrentNode->GetLayerId() == 1) {
 
+			auto x = m_CurrentNode->GetVertex().position.x;
+			auto y = m_CurrentNode->GetVertex().position.y;
+			auto lyr = m_CurrentNode->GetLayerId();
+
+			auto& node = std::find_if(nodes.begin(), nodes.end(), [x, y, lyr](Node& n) { return 
+				n.GetVertex().position.x == x && 
+				n.GetVertex().position.y == y &&
+				n.GetLayerId() == lyr; 
+			});
+
 			//Current Node's Neighbors
-			auto& neighbors = m_GridMgr->GetNodeNeighbors(nodes, *m_CurrentNode, tileSize, 1);
+			//auto& neighbors = this->m_GridMgr->GetNodeNeighbors(nodes, *m_CurrentNode, tileSize, 1);
+			//std::vector<Node> *tNodes = new std::vector<Node>();
+
+			auto& northNode = std::find_if(nodes.begin(), nodes.end(), [x, y, lyr, tileSize, &node](Node& n) { return
+				n.GetVertex().position.x == node->GetVertex().position.x &&
+				n.GetVertex().position.y == node->GetVertex().position.y - tileSize &&
+				n.GetLayerId() == node->GetLayerId();
+			});
+
+			auto& eastNode = std::find_if(nodes.begin(), nodes.end(), [x, y, lyr, tileSize, &node](Node& n) { return
+				n.GetVertex().position.x == node->GetVertex().position.x + tileSize &&
+				n.GetVertex().position.y == y &&
+				n.GetLayerId() == node->GetLayerId();
+			});
+
+			auto& southNode = std::find_if(nodes.begin(), nodes.end(), [x, y, lyr, tileSize, &node](Node& n) { return
+				n.GetVertex().position.x == x  &&
+				n.GetVertex().position.y == node->GetVertex().position.y + tileSize &&
+				n.GetLayerId() == node->GetLayerId();
+			});
+
+			auto& westNode = std::find_if(nodes.begin(), nodes.end(), [x, y, lyr, tileSize, &node](Node& n) { return
+				n.GetVertex().position.x == node->GetVertex().position.x - tileSize  &&
+				n.GetVertex().position.y == y &&
+				n.GetLayerId() == node->GetLayerId();
+			});
+
+			
 
 			//Directions ( 1 - 4 )
+			
 			auto randDir = rand() % 4;
-			Directions direction;
+			//Directions direction;
 
-			switch (randDir) {
+			/*switch (randDir) {
 			case 1: direction = North; break;
 			case 2: direction = East; break;
 			case 3: direction = South; break;
 			case 4: direction = West; break;
-			};
+			};*/
 
-			switch (direction) {
+			//auto status = northNode->GetBoundaryStatus();
+			if (m_CurrentNode->GetVisitedStatus() == false) {
 
-			case North:
-				if (neighbors[direction].GetBoundaryStatus() == false && neighbors[direction].GetVisitedStatus() == false) {
-					m_CurrentNode->SetVisited(true);
-					*m_CurrentNode = neighbors[direction];
-					m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Black);
+				switch (randDir) {
+
+				case 0:
+
+					if (northNode->GetBoundaryStatus() == false && northNode->GetVisitedStatus() == false) {
+						auto northN = new Node(*northNode);
+						m_CurrentNode->SetVisited(true);
+						m_CurrentNode = northN;
+						m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Red);
+					}
+
+					break;
+				case 1:
+					if (eastNode->GetBoundaryStatus() == false && eastNode->GetVisitedStatus() == false) {
+						auto eastN = new Node(*eastNode);
+						m_CurrentNode->SetVisited(true);
+						m_CurrentNode = eastN;
+						m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Red);
+					}
+					break;
+				case 2:
+					if (southNode->GetBoundaryStatus() == false && southNode->GetVisitedStatus() == false) {
+						auto southN = new Node(*southNode);
+						m_CurrentNode->SetVisited(true);
+						m_CurrentNode = southN;
+						m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Red);
+					}
+
+					break;
+				case 3:
+					if (westNode->GetBoundaryStatus() == false && westNode->GetVisitedStatus() == false) {
+						auto westN = new Node(*westNode);
+						m_CurrentNode->SetVisited(true);
+						m_CurrentNode = westN;
+						m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Red);
+					}
+					break;
+
+				default:
+					break;
 				}
-
-				break;
-			case East:
-				if (neighbors[direction].GetBoundaryStatus() == false && neighbors[direction].GetVisitedStatus() == false) {
-					m_CurrentNode->SetVisited(true);
-					*m_CurrentNode = neighbors[direction];
-					m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Black);
-				}
-				break;
-			case South:
-				if (neighbors[direction].GetBoundaryStatus() == false && neighbors[direction].GetVisitedStatus() == false) {
-					m_CurrentNode->SetVisited(true);
-					*m_CurrentNode = neighbors[direction];
-					m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Black);
-				}
-
-				break;
-			case West:
-				if (neighbors[direction].GetBoundaryStatus() == false && neighbors[direction].GetVisitedStatus() == false) {
-					m_CurrentNode->SetVisited(true);
-					*m_CurrentNode = neighbors[direction];
-					m_CurrentNode->GetTile().GetShape().setFillColor(sf::Color::Black);
-				}
-				break;
-
-			default:
-				break;
 			}
-
-			//neighbors.clear();
-
 		}		
 	}
 }

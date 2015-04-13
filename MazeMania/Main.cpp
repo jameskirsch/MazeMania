@@ -1,5 +1,5 @@
 // James Kirsch - MazeMania Project
-// Using the SFLM library
+// Using the SFML library
 
 #include <iostream>
 #include <MazeMania.Logic.h>
@@ -9,7 +9,7 @@ using namespace MazeManiaLogic;
 using namespace MazeManiaData;
 
 int GAME_ID = 1;
-std::string GAME_NAME = "MazeMania";
+std::string GAME_NAME = "MazeMania - Authored by James Kirsch";
 
 //Simply Create a Game, with Name, Id, Window Height, Window Width, and Bits Per Pixel.
 void main(int argc, char *argv[]) {

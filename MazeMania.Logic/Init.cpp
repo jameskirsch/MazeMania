@@ -38,8 +38,8 @@ namespace MazeManiaLogic {
 							
 		//Populate the Grid with Cells, Per Layer. TODO: Figure out why 1.5 is needed, add ID.
 		int id = 1;
-		nodes.reserve((map.GetShape().getSize().x / tileSize) * layerSize);
-		verts.resize((map.GetShape().getSize().x / tileSize) * layerSize);
+		nodes.reserve((map.GetShape().getSize().x / tileSize * layerSize));
+		verts.resize((map.GetShape().getSize().x / tileSize)  * layerSize);
 		
 		for (auto& lyr : layers) {
 
@@ -131,10 +131,6 @@ namespace MazeManiaLogic {
 			}
 		}
 
-		//Create and Generator The Maze
-		//std::unique_ptr<Generator> generator(new Generator(*m_Session, *gridMgr));
-		//generator->GenerateMaze(tileSize);
-
 		//Information about the loading.
 		std::cout << "Map Size: " << "X: " << mapRect.getSize().x << " Y: " << mapRect.getSize().y << std::endl;
 		std::cout << "Tile Size: " << tileSize << std::endl;
@@ -142,7 +138,6 @@ namespace MazeManiaLogic {
 		std::cout << "Layers Size: " << layers.size() << std::endl;
 		std::cout << "Total Vertices: " << grid.GetVerts().getVertexCount() << std::endl;
 		std::cout << "Vertices Per Layer: " << grid.GetVerts().getVertexCount() / layers.size() << std::endl;
-		std::cout << "Total Tiles: " << tiles.size() << std::endl;
 		
 		return true;
 	}

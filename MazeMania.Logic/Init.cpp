@@ -10,7 +10,7 @@ namespace MazeManiaLogic {
 		
 		//TO DO: Make these values inputs
 		int layerSize = 1;
-		float tileSize = 8;
+		float tileSize = 16;
 		int numTiles = 4;
 		
 		//Assigned to local references and make initializations
